@@ -1,0 +1,5 @@
+slb server s1 10.0.2.128
+port 80 tcp
+slb server s2 10.0.2.129 
+port 80 tcp 
+wr mem
