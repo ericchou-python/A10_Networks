@@ -1,13 +1,26 @@
 #!/usr/bin/env python
 
 #
-# v1, September 27, 2013
+# v2, December 20, 2013
 # by Eric Chou
 #
 # Reference: AX_aXAPI_Ref_v2-20121010.pdf
 #
+# v2 change: added httplib fix
 
 import httplib, json, urllib, urllib2
+
+# patch httplib.HTTPSConnection.connect
+def connect_patched(self):
+    "Connect to a host on a given (SSL) port."
+
+    sock = socket.create_connection((self.host, self.port),self.timeout, self.source_address)
+    if self._tunnel_host:
+        self.sock = sock
+        self._tunnel()
+    self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file, ssl_version=ssl.PROTOCOL_TLSv1)
+
+httplib.HTTPSConnection.connect = connect_patched
 
 # Gets the session ID to host 172.31.31.121 (Student 12)
 c = httplib.HTTPSConnection("172.31.31.121")

@@ -1,2 +1,1 @@
-show version
-show interface brief
+show interface loopback 0
