@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>slb.VirtualServer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="slb-module.html">Module&nbsp;slb</a> ::
+        Class&nbsp;VirtualServer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="slb.VirtualServer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class VirtualServer</h1><p class="nomargin-top"><span class="codelink"><a href="slb-pysrc.html#VirtualServer">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   object --+    
+            |    
+<a href="base.AxObject-class.html">base.AxObject</a> --+
+                |
+               <strong class="uidshort">VirtualServer</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+Implementation of the aXAPI slb.virtual_server.* method to 
+manage the SLB virtual servers as getAll/create/delete/update 
+
+Usage:
+    # Virtual server with parameters:
+    # name         (required) virtual server name.
+    #              Required one of the following token (address, subnet, acl_id, acl_name):
+    # address        virtual server address, either IPv4 or IPv6
+    # subnet         IPv4 subnet 
+    #     address        address of subnet
+    #     mask_len       the length of this subnet
+    # acl_id         IPv4 ACL id
+    # acl_name       IPv6 ACL name
+    #
+    # status         virtual server status, either enabled(1) or disabled(0)
+    # arp_status     ARP disabled option, either disabled(0) or enabled(1)
+    # stata_data     stats data option, either disabled(0) or enabled(1)
+    # extended_stat  extended stat option, either disabled(0) or enabled(1)
+    # disable_vserver_on_condition    disable vserver on conditions. Do not disable virtual server in any case(0), disable virtual server when any port down (1), disable virtual server when all ports down(2)
+    # redistribution_flagged          redistribution flagged option, either disabled(0) or enabled(1)
+    # ha_group       configured HA group
+    #     group                  status of HA config
+    #     ha_group_id            ha group id
+    #     dynamic_server_weight  dynamic server weight
+    # vip_template   virtual server template name
+    # pbslb_template pbslb policy template name
+    # vport_list     tag for virtual services
+    #      protocol   (key) virtual service protocol with:
+    #             TCP         2
+    #             UDP         3
+    #             Other       4
+    #             RTSP        5
+    #             FTP         6
+    #             MMS         7
+    #             SIP         8
+    #             FAST-HTTP   9
+    #             TCP-PROXY   10
+    #             HTTP        11
+    #             HTTPS       12
+    #             SSL-PROXY   13
+    #             SMTP        14
+    #             SIP-TCP     15
+    #             SIP-TLS     16
+    #             DIAMETER    17
+    #             DNS-UDP     18
+    #             TFTP        19
+    #      port       (key) virtual service port number
+    #      service_group     service group assigned to the virtual service
+    #      status            virtual service status either enabled(1) or disabled(0)
+    #      connection_limit  connection limit of the virtual service
+    #          status        connection limit status of the virtual service either enabled(1) or disabled(0)
+    #          connection_limit           connection limit value
+    #          connection_limit_action    connection limit action, either reset(1) or drop(0)
+    #          connection_limit_log       connection limit logging, either enabled(1) or disabled(0)
+    #      default_selection    use default server selection when preferred method fails, 
+    #                           either enabled(1) or disabled(0) 
+    #      received_hop         use received hop for response either enabled(1) or disabled(0)
+    #      stats_data           stats data, either enabled(1) or disabled(0)
+    #      extended_stats       extended stats, either enabled(1) or disabled(0)
+    #      snat_against_vip     source nat traffic against vip either enabled(1) or disabled(0)
+    #      vport_template       virtual server port template name
+    #      port_acl_id          assigned access-list, ipv4 only
+    #      pbslb_template       pbslb template
+    #      aflex_list          aflex list
+    #          aflex            name of aflex in aflex_list
+    #      acl_natpool_binding_list    acl &#8211; natpool binding list
+    #                    ***one of the follwing properties, acl_id or acl_name:
+    #          acl_id                   ipv4 acl id
+    #          acl_name                 IPv6 acl name
+    #          nat_pool                 source nat pool name
+    #
+    #    protocol=HTTP:  vport has the following additional properties: 
+    #      send_reset        send client reset when server selection fails, 
+    #                        either enabled(1) or disabled(0)
+    #      sync_cookie        syn cookie, either enabled(1) or disabled(0)
+    #      source_nat            source NAT pool name
+    #      http_template         HTTP template name
+    #      ram_cache_template    RAM caching template name
+    #      tcp_proxy_template    TCP-Proxy template name
+    #      server_ssl_template   Server-SSL template name
+    #      conn_reuse_template   Connection-Reuse template name
+    #              ***one of the following properties, source_ip_persistence_template/cookie_persistence_template
+    #      source_ip_persistence_template   Source-IP-Persistent template name
+    #      cookie_persistence_template      cookie persistence template name
+    #      
+    #    protocol=HTTPS:  vport has the following additional properties:
+    #      send_reset             send client reset when server selection fails, 
+    #                             either enabled(1) or disabled(0)
+    #      sync_cookie            syn cookie, either enabled(1) or disabled(0)
+    #      source_nat             source NAT pool name
+    #      http_template          HTTP template name
+    #      ram_cache_template     RAM caching template name
+    #      tcp_proxy_template     TCP-Proxy template name
+    #      client_ssl_template    client ssl template
+    #      server_ssl_template    Server-SSL template name
+    #      conn_reuse_template    Connection-Reuse template name
+    #              ***one of the following properties: source_ip_persistence_template/cookie_persistence_template
+    #      source_ip_persistence_template  Source-IP-Persistent template name
+    #      cookie_persistence_template     cookie persistence template name
+    #
+    #    protocol=FAST-HTTP:  vport has the following additional properties:
+    #      send_reset              send client reset when server selection fails, 
+    #                              either enabled(1) or disabled(0)
+    #      sync_cookie             syn cookie, either enabled(1) or disabled(0)
+    #      source_nat              source NAT pool name
+    #      http_template           HTTP template name
+    #      tcp_template            TCP template name
+    #      conn_reuse_template     Connection-Reuse template name
+    #              ***one of the following properties: source_ip_persistence_template/cookie_persistence_template
+    #      source_ip_persistence_template   Source-IP-Persistent template name
+    #      cookie_persistence_template      cookie persistence template name
+    #
+    #    protocol=TCP:  vport has the following additional properties:
+    #      send_reset              send client reset when server selection fails, 
+    #                              either enabled(1) or disabled(0)
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      direct_server_return    direct server return (no destination NAT) enabled (1) or disabled (0)
+    #      sync_cookie             syn cookie, either enabled(1) or disabled(0)
+    #      source_nat              source NAT pool name
+    #      tcp_template            TCP template name
+    #              ***one of the following properties: source_ip_persistence_template/cookie_persistence_template
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      cookie_persistence_template       cookie persistence template name
+    #
+    #    protocol=UDP:  vport has the following additional properties:
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      direct_server_return    direct server return (no destination NAT) enabled (1) or disabled (0)
+    #      source_nat              source NAT pool name
+    #      udp_template            UDP template name
+    #      dns_template            DNS template name
+    #      source_ip_persistence_template   Source-IP-Persistent template name
+    #
+    #    protocol=RTSP:  vport has the following additional properties:
+    #      send_reset        send client reset when server selection fails, 
+    #      either enabled(1) or disabled(0)
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      direct_server_return    direct server return (no destination NAT) enabled (1) or disabled (0)
+    #      sync_cookie        syn cookie, either enabled(1) or disabled(0)
+    #      tcp_template        TCP template name
+    #      rtsp_template    RTSP template name
+    #
+    #    protocol=FTP:  vport has the following additional properties:
+    #      send_reset        send client reset when server selection fails, 
+    #      either enabled(1) or disabled(0)
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      direct_server_return    direct server return (no destination NAT) enabled (1) or disabled (0)
+    #      sync_cookie        syn cookie, either enabled(1) or disabled(0)
+    #      source_nat        source NAT pool name
+    #      tcp_template        TCP template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #
+    #    protocol=MMS:  vport has the following additional properties:
+    #      send_reset        send client reset when server selection fails, 
+    #      either enabled(1) or disabled(0)
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      sync_cookie        syn cookie, either enabled(1) or disabled(0)
+    #      tcp_template        TCP template name
+    #
+    #    protocol=SSL-PROXY:  vport has the following additional properties:
+    #      send_reset        send client reset when server selection fails, 
+    #      either enabled(1) or disabled(0)
+    #      sync_cookie        syn cookie, either enabled(1) or disabled(0)
+    #      source_nat        source NAT pool name
+    #      tcp_proxy_template        TCP-Proxy template name
+    #      client_ssl_template        client ssl template
+    #      server_ssl_template        Server-SSL template name
+    #      conn_reuse_template    Connection-Reuse template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #
+    #    protocol=SMTP-PROXY: vport has the following additional properties:
+    #      send_reset           send client reset when server selection fails, 
+    #                           either enabled(1) or disabled(0)
+    #      sync_cookie          syn cookie, either enabled(1) or disabled(0)
+    #      source_nat           source NAT pool name
+    #      tcp_proxy_template   TCP-Proxy template name
+    #      client_ssl_template  client ssl template
+    #      smtp_template        Server-SSL template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #
+    #    protocol=SIP:  vport has the following additional properties:
+    #      send_reset              send client reset when server selection fails, 
+    #                              either enabled(1) or disabled(0)
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      udp_template            UDP template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      sip_template            SIP template name
+    #      dns_template            DNS template name
+    #
+    #    protocol=SIP-TCP:  vport has the following additional properties:
+    #      send_reset                  send client reset when server selection fails, 
+    #                                  either enabled(1) or disabled(0)
+    #      sync_cookie                 syn cookie, either enabled(1) or disabled(0)
+    #      source_nat                  source NAT pool name
+    #      server_ssl_template         Server-SSL template name
+    #      conn_reuse_template         Connection-Reuse template name
+    #      tcp_proxy_template          TCP-Proxy template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      sip_template                SIP template name
+    #
+    #    protocol=SIP-TLS:  vport has the following additional properties:
+    #      send_reset                 send client reset when server selection fails, 
+    #                                 either enabled(1) or disabled(0)
+    #      sync_cookie                syn cookie, either enabled(1) or disabled(0)
+    #      source_nat                 source NAT pool name
+    #      client_ssl_template        client ssl template
+    #      server_ssl_template        Server-SSL template name
+    #      conn_reuse_template        Connection-Reuse template name
+    #      tcp_proxy_template         TCP-Proxy template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      sip_template               SIP template name
+    #
+    #    protocol=TCP-PROXY:  vport has the following additional properties:
+    #      send_reset                send client reset when server selection fails, 
+    #                                either enabled(1) or disabled(0)
+    #      sync_cookie               syn cookie, either enabled(1) or disabled(0)
+    #      source_nat                source NAT pool name
+    #      tcp_proxy_template        TCP-Proxy template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #
+    #    protocol=DNS-UDP:  vport has the following additional properties:
+    #      send_reset                send client reset when server selection fails, 
+    #                                either enabled(1) or disabled(0)
+    #      source_nat                source NAT pool name
+    #      udp_template              UDP template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      dns_template              DNS template name
+    #
+    #     protocol=DIAMETER:  vport has the following additional properties:
+    #      send_reset                  send client reset when server selection fails, 
+    #                                  either enabled(1) or disabled(0)
+    #      source_nat                  source NAT pool name
+    #      udp_template                UDP template name
+    #      source_ip_persistence_template    Source-IP-Persistent template name
+    #      dns_template                DNS template name
+    #
+    #    protocol=TFTP:  vport has the following additional properties:
+    #      ha_connection_mirror    HA connection mirror enabled(1) or disabled (0)
+    #      direct_server_return    direct server return (no destination NAT) enabled (1)
+    #      source_nat              source NAT pool name
+    #      udp_template            UDP template name
+    #
+    #    protocol=OTHER:  vport has the following additional properties:
+    #      direct_server_return   direct server return (no destination NAT) enabled (1)
+    #      source_nat          source NAT pool name
+    #      udp_template        UDP  template name
+    #      l4_template_type    TCP (2) or UDP(3)
+    #          ***one of the following properties: udp_template/tcp_template
+    #      udp_template        UDP template name
+    #      tcp_template        TCP template name
+    
+    # Example: 
+    # create a virtual server, test_vip1, with address 100.10.10.1
+    # and configure a HTTP service at port 80:
+    vip1 = VirtualServer(name=&quot;test_vip1&quot;, address=&quot;100.10.10.1&quot;)
+    vip1.vport_list = [{&quot;port&quot; : 80, &quot;protocol&quot;: AxAPI.SVC_HTTP}]
+    vip1.create()
+    # disable the vip1 HTTP port 80:
+    vip1.vport_list = [{&quot;port&quot; : 80, &quot;protocol&quot;: AxAPI.SVC_HTTP, &quot;status&quot;: AxAPI.STATUS_DISABLED}]
+    vip1.update()
+    # delete the vip1
+    vip1.delete()
+
+    # get all virtual server
+    vip_list = VirtualServer.getAll()
+    for avip in vip_list:
+        # work on avip instance
+        print avip
+    # search a virtual server with name, vip2
+    vip2 = VirtualServer.searchByName(&quot;vip2&quot;)
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="slb.VirtualServer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**params</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create"></a><span class="summary-sig-name">create</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.virtual_server.create Create the virtual server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.create">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.virtual_server.delete Delete the virtual server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.delete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="update"></a><span class="summary-sig-name">update</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.virtual_server.update Update the virtual server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.update">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__getattr__">__getattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__repr__">__repr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setattr__">__setattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setitem__">__setitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__str__">__str__</a></code>,
+      <code><a href="base.AxObject-class.html#dump">dump</a></code>,
+      <code><a href="base.AxObject-class.html#get">get</a></code>,
+      <code><a href="base.AxObject-class.html#getInfo">getInfo</a></code>,
+      <code><a href="base.AxObject-class.html#getObjectDict">getObjectDict</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataJson">getRequestPostDataJson</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataXml">getRequestPostDataXml</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b> (private):
+      <code><a href="base.AxObject-class.html#_appendString" onclick="show_private();">_appendString</a></code>,
+      <code><a href="base.AxObject-class.html#_generateDictInUrl" onclick="show_private();">_generateDictInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_generateListInUrl" onclick="show_private();">_generateListInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_set_properties" onclick="show_private();">_set_properties</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getAll"></a><span class="summary-sig-name">getAll</span>()</span><br />
+      method :slb.virtual_server.getAll Returns a list of virtual servers 
+      in VirtualServer instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.getAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="searchByName"></a><span class="summary-sig-name">searchByName</span>(<span class="summary-sig-arg">name</span>)</span><br />
+      method: slb.virtual_server.search Search the virtual server by given 
+      name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#VirtualServer.searchByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__display__"></a><span class="summary-name">__display__</span> = <code title="['name', 'address', 'status']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">address</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">status</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__obj_name__"></a><span class="summary-name">__obj_name__</span> = <code title="'virtual_server'"><code class="variable-quote">'</code><code class="variable-string">virtual_server</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="slb.VirtualServer-class.html#__xml_convrt__" class="summary-name">__xml_convrt__</a> = <code title="{'acl_natpool_binding_list': 'acl_natpool_binding',
+ 'aflex_list': 'aflex',
+ 'virtual_server_list': 'virtual_server',
+ 'vport_list': 'vport'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">acl_natpool_binding_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">acl_natpool_bin</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__obj_readonly__">__obj_readonly__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**params</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="slb-pysrc.html#VirtualServer.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__xml_convrt__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__xml_convrt__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">acl_natpool_binding_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">acl_natpool_binding</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">aflex_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">aflex</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">virtual_server_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">virtual_server</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">vport_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">vport</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:20 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

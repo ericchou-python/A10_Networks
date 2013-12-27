@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>base</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;base
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="base-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="base-module.html">Module base</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- encoding: utf8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">    Some base objects for the aXAPI.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">    Author : Richard Zhang (c)</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">    e-mail : rzhang@a10networks.com</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">    Date   : 03/05/2012</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">cStringIO</tt> <tt class="py-keyword">import</tt> <tt class="py-name">StringIO</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="AxAPI"></a><div id="AxAPI-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="AxAPI-toggle" onclick="return toggle('AxAPI');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="base.AxAPI-class.html">AxAPI</a><tt class="py-op">:</tt> </tt>
+</div><div id="AxAPI-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AxAPI-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-docstring">""" Status:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable base.AxAPI.STATUS_ENABLED=base.AxAPI-class.html#STATUS_ENABLED"><a title="base.AxAPI.STATUS_ENABLED" class="py-name" href="#" onclick="return doclink('link-0', 'STATUS_ENABLED', 'link-0');">STATUS_ENABLED</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable base.AxAPI.STATUS_DISABLED=base.AxAPI-class.html#STATUS_DISABLED"><a title="base.AxAPI.STATUS_DISABLED" class="py-name" href="#" onclick="return doclink('link-1', 'STATUS_DISABLED', 'link-1');">STATUS_DISABLED</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">     </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-string">""" Protocol Types in service group and real server:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-string">    """</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable base.AxAPI.PROTO_TCP=base.AxAPI-class.html#PROTO_TCP"><a title="base.AxAPI.PROTO_TCP" class="py-name" href="#" onclick="return doclink('link-2', 'PROTO_TCP', 'link-2');">PROTO_TCP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable base.AxAPI.PROTO_UDP=base.AxAPI-class.html#PROTO_UDP"><a title="base.AxAPI.PROTO_UDP" class="py-name" href="#" onclick="return doclink('link-3', 'PROTO_UDP', 'link-3');">PROTO_UDP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-string">""" Load-Balancer methods:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-string">    """</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable base.AxAPI.LB_ROUND_ROBIN=base.AxAPI-class.html#LB_ROUND_ROBIN"><a title="base.AxAPI.LB_ROUND_ROBIN" class="py-name" href="#" onclick="return doclink('link-4', 'LB_ROUND_ROBIN', 'link-4');">LB_ROUND_ROBIN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable base.AxAPI.LB_WEIGHTED_ROUND_ROBIN=base.AxAPI-class.html#LB_WEIGHTED_ROUND_ROBIN"><a title="base.AxAPI.LB_WEIGHTED_ROUND_ROBIN" class="py-name" href="#" onclick="return doclink('link-5', 'LB_WEIGHTED_ROUND_ROBIN', 'link-5');">LB_WEIGHTED_ROUND_ROBIN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable base.AxAPI.LB_LEAST_CONN=base.AxAPI-class.html#LB_LEAST_CONN"><a title="base.AxAPI.LB_LEAST_CONN" class="py-name" href="#" onclick="return doclink('link-6', 'LB_LEAST_CONN', 'link-6');">LB_LEAST_CONN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable base.AxAPI.LB_WEIGHTED_LEAST_CONN=base.AxAPI-class.html#LB_WEIGHTED_LEAST_CONN"><a title="base.AxAPI.LB_WEIGHTED_LEAST_CONN" class="py-name" href="#" onclick="return doclink('link-7', 'LB_WEIGHTED_LEAST_CONN', 'link-7');">LB_WEIGHTED_LEAST_CONN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable base.AxAPI.LB_LEAST_CONNECTED_ON_SERVICE_PORT=base.AxAPI-class.html#LB_LEAST_CONNECTED_ON_SERVICE_PORT"><a title="base.AxAPI.LB_LEAST_CONNECTED_ON_SERVICE_PORT" class="py-name" href="#" onclick="return doclink('link-8', 'LB_LEAST_CONNECTED_ON_SERVICE_PORT', 'link-8');">LB_LEAST_CONNECTED_ON_SERVICE_PORT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">4</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable base.AxAPI.LB_WEIGHTED_LEAST_CONN_ON_SERVICE_PORT=base.AxAPI-class.html#LB_WEIGHTED_LEAST_CONN_ON_SERVICE_PORT"><a title="base.AxAPI.LB_WEIGHTED_LEAST_CONN_ON_SERVICE_PORT" class="py-name" href="#" onclick="return doclink('link-9', 'LB_WEIGHTED_LEAST_CONN_ON_SERVICE_PORT', 'link-9');">LB_WEIGHTED_LEAST_CONN_ON_SERVICE_PORT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable base.AxAPI.LB_FAST_RESP_TIME=base.AxAPI-class.html#LB_FAST_RESP_TIME"><a title="base.AxAPI.LB_FAST_RESP_TIME" class="py-name" href="#" onclick="return doclink('link-10', 'LB_FAST_RESP_TIME', 'link-10');">LB_FAST_RESP_TIME</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable base.AxAPI.LB_LEAST_REQ=base.AxAPI-class.html#LB_LEAST_REQ"><a title="base.AxAPI.LB_LEAST_REQ" class="py-name" href="#" onclick="return doclink('link-11', 'LB_LEAST_REQ', 'link-11');">LB_LEAST_REQ</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable base.AxAPI.LB_STRICT_ROUND_ROBIN=base.AxAPI-class.html#LB_STRICT_ROUND_ROBIN"><a title="base.AxAPI.LB_STRICT_ROUND_ROBIN" class="py-name" href="#" onclick="return doclink('link-12', 'LB_STRICT_ROUND_ROBIN', 'link-12');">LB_STRICT_ROUND_ROBIN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable base.AxAPI.LB_STATE_LESS_SOURCE_IP_HASH=base.AxAPI-class.html#LB_STATE_LESS_SOURCE_IP_HASH"><a title="base.AxAPI.LB_STATE_LESS_SOURCE_IP_HASH" class="py-name" href="#" onclick="return doclink('link-13', 'LB_STATE_LESS_SOURCE_IP_HASH', 'link-13');">LB_STATE_LESS_SOURCE_IP_HASH</a></tt> <tt class="py-op">=</tt> <tt class="py-number">9</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable base.AxAPI.LB_STATE_LESS_SOURCE_IP_HASH_ONLY=base.AxAPI-class.html#LB_STATE_LESS_SOURCE_IP_HASH_ONLY"><a title="base.AxAPI.LB_STATE_LESS_SOURCE_IP_HASH_ONLY" class="py-name" href="#" onclick="return doclink('link-14', 'LB_STATE_LESS_SOURCE_IP_HASH_ONLY', 'link-14');">LB_STATE_LESS_SOURCE_IP_HASH_ONLY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable base.AxAPI.LB_STATE_LESS_DEST_IP_HASH=base.AxAPI-class.html#LB_STATE_LESS_DEST_IP_HASH"><a title="base.AxAPI.LB_STATE_LESS_DEST_IP_HASH" class="py-name" href="#" onclick="return doclink('link-15', 'LB_STATE_LESS_DEST_IP_HASH', 'link-15');">LB_STATE_LESS_DEST_IP_HASH</a></tt> <tt class="py-op">=</tt> <tt class="py-number">11</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt id="link-16" class="py-name" targets="Variable base.AxAPI.LB_STATE_LESS_SOURCE_DEST_IP_HASH=base.AxAPI-class.html#LB_STATE_LESS_SOURCE_DEST_IP_HASH"><a title="base.AxAPI.LB_STATE_LESS_SOURCE_DEST_IP_HASH" class="py-name" href="#" onclick="return doclink('link-16', 'LB_STATE_LESS_SOURCE_DEST_IP_HASH', 'link-16');">LB_STATE_LESS_SOURCE_DEST_IP_HASH</a></tt> <tt class="py-op">=</tt> <tt class="py-number">12</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Variable base.AxAPI.LB_STATE_LESS_PER_PACKAGE_ROUND_ROBIN=base.AxAPI-class.html#LB_STATE_LESS_PER_PACKAGE_ROUND_ROBIN"><a title="base.AxAPI.LB_STATE_LESS_PER_PACKAGE_ROUND_ROBIN" class="py-name" href="#" onclick="return doclink('link-17', 'LB_STATE_LESS_PER_PACKAGE_ROUND_ROBIN', 'link-17');">LB_STATE_LESS_PER_PACKAGE_ROUND_ROBIN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">13</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">     </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-string">""" Virtual Service Types:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-string">    """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt id="link-18" class="py-name" targets="Variable base.AxAPI.SVC_TCP=base.AxAPI-class.html#SVC_TCP"><a title="base.AxAPI.SVC_TCP" class="py-name" href="#" onclick="return doclink('link-18', 'SVC_TCP', 'link-18');">SVC_TCP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable base.AxAPI.SVC_UDP=base.AxAPI-class.html#SVC_UDP"><a title="base.AxAPI.SVC_UDP" class="py-name" href="#" onclick="return doclink('link-19', 'SVC_UDP', 'link-19');">SVC_UDP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt id="link-20" class="py-name" targets="Variable base.AxAPI.SVC_HTTP=base.AxAPI-class.html#SVC_HTTP"><a title="base.AxAPI.SVC_HTTP" class="py-name" href="#" onclick="return doclink('link-20', 'SVC_HTTP', 'link-20');">SVC_HTTP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">11</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Variable base.AxAPI.SVC_HTTPS=base.AxAPI-class.html#SVC_HTTPS"><a title="base.AxAPI.SVC_HTTPS" class="py-name" href="#" onclick="return doclink('link-21', 'SVC_HTTPS', 'link-21');">SVC_HTTPS</a></tt> <tt class="py-op">=</tt> <tt class="py-number">12</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt id="link-22" class="py-name" targets="Variable base.AxAPI.SVC_FAST_HTTP=base.AxAPI-class.html#SVC_FAST_HTTP"><a title="base.AxAPI.SVC_FAST_HTTP" class="py-name" href="#" onclick="return doclink('link-22', 'SVC_FAST_HTTP', 'link-22');">SVC_FAST_HTTP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">9</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt id="link-23" class="py-name" targets="Variable base.AxAPI.SVC_RTSP=base.AxAPI-class.html#SVC_RTSP"><a title="base.AxAPI.SVC_RTSP" class="py-name" href="#" onclick="return doclink('link-23', 'SVC_RTSP', 'link-23');">SVC_RTSP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt id="link-24" class="py-name" targets="Variable base.AxAPI.SVC_FTP=base.AxAPI-class.html#SVC_FTP"><a title="base.AxAPI.SVC_FTP" class="py-name" href="#" onclick="return doclink('link-24', 'SVC_FTP', 'link-24');">SVC_FTP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt id="link-25" class="py-name" targets="Variable base.AxAPI.SVC_MMS=base.AxAPI-class.html#SVC_MMS"><a title="base.AxAPI.SVC_MMS" class="py-name" href="#" onclick="return doclink('link-25', 'SVC_MMS', 'link-25');">SVC_MMS</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt id="link-26" class="py-name" targets="Variable base.AxAPI.SVC_TCP_PROXY=base.AxAPI-class.html#SVC_TCP_PROXY"><a title="base.AxAPI.SVC_TCP_PROXY" class="py-name" href="#" onclick="return doclink('link-26', 'SVC_TCP_PROXY', 'link-26');">SVC_TCP_PROXY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt id="link-27" class="py-name" targets="Variable base.AxAPI.SVC_SSL_PROXY=base.AxAPI-class.html#SVC_SSL_PROXY"><a title="base.AxAPI.SVC_SSL_PROXY" class="py-name" href="#" onclick="return doclink('link-27', 'SVC_SSL_PROXY', 'link-27');">SVC_SSL_PROXY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">13</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt id="link-28" class="py-name" targets="Variable base.AxAPI.SVC_SMTP=base.AxAPI-class.html#SVC_SMTP"><a title="base.AxAPI.SVC_SMTP" class="py-name" href="#" onclick="return doclink('link-28', 'SVC_SMTP', 'link-28');">SVC_SMTP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">14</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-29" class="py-name" targets="Variable base.AxAPI.SVC_SIP=base.AxAPI-class.html#SVC_SIP"><a title="base.AxAPI.SVC_SIP" class="py-name" href="#" onclick="return doclink('link-29', 'SVC_SIP', 'link-29');">SVC_SIP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt id="link-30" class="py-name" targets="Variable base.AxAPI.SVC_SIP_TCP=base.AxAPI-class.html#SVC_SIP_TCP"><a title="base.AxAPI.SVC_SIP_TCP" class="py-name" href="#" onclick="return doclink('link-30', 'SVC_SIP_TCP', 'link-30');">SVC_SIP_TCP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">15</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt id="link-31" class="py-name" targets="Variable base.AxAPI.SVC_SIP_STL=base.AxAPI-class.html#SVC_SIP_STL"><a title="base.AxAPI.SVC_SIP_STL" class="py-name" href="#" onclick="return doclink('link-31', 'SVC_SIP_STL', 'link-31');">SVC_SIP_STL</a></tt> <tt class="py-op">=</tt> <tt class="py-number">16</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt id="link-32" class="py-name" targets="Variable base.AxAPI.SVC_DIAMETER=base.AxAPI-class.html#SVC_DIAMETER"><a title="base.AxAPI.SVC_DIAMETER" class="py-name" href="#" onclick="return doclink('link-32', 'SVC_DIAMETER', 'link-32');">SVC_DIAMETER</a></tt> <tt class="py-op">=</tt> <tt class="py-number">17</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt id="link-33" class="py-name" targets="Variable base.AxAPI.SVC_DNS_UDP=base.AxAPI-class.html#SVC_DNS_UDP"><a title="base.AxAPI.SVC_DNS_UDP" class="py-name" href="#" onclick="return doclink('link-33', 'SVC_DNS_UDP', 'link-33');">SVC_DNS_UDP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">18</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt id="link-34" class="py-name" targets="Variable base.AxAPI.SVC_TFTP=base.AxAPI-class.html#SVC_TFTP"><a title="base.AxAPI.SVC_TFTP" class="py-name" href="#" onclick="return doclink('link-34', 'SVC_TFTP', 'link-34');">SVC_TFTP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">19</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">      </tt>
+<a name="AxError"></a><div id="AxError-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="AxError-toggle" onclick="return toggle('AxError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="base.AxError-class.html">AxError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AxError-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="AxAPIError"></a><div id="AxAPIError-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="AxAPIError-toggle" onclick="return toggle('AxAPIError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="base.AxAPIError-class.html">AxAPIError</a><tt class="py-op">(</tt><tt class="py-base-class">AxError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxAPIError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AxAPIError-expanded"><a name="AxAPIError.__init__"></a><div id="AxAPIError.__init__-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="AxAPIError.__init__-toggle" onclick="return toggle('AxAPIError.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxAPIError-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">code</tt><tt class="py-op">,</tt><tt class="py-param">message</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxAPIError.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxAPIError.__init__-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt id="link-35" class="py-name" targets="Class base.AxError=base.AxError-class.html"><a title="base.AxError" class="py-name" href="#" onclick="return doclink('link-35', 'AxError', 'link-35');">AxError</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method base.AxAPIError.__init__()=base.AxAPIError-class.html#__init__,Method base.AxDictObject.__init__()=base.AxDictObject-class.html#__init__,Method base.AxObject.__init__()=base.AxObject-class.html#__init__,Method gslb.GslbPolicy.__init__()=gslb.GslbPolicy-class.html#__init__,Method gslb.GslbSite.__init__()=gslb.GslbSite-class.html#__init__,Method method_call.AxApiContext.__init__()=method_call.AxApiContext-class.html#__init__,Method method_call._XmlDict.__init__()=method_call._XmlDict-class.html#__init__,Method method_call._XmlList.__init__()=method_call._XmlList-class.html#__init__,Method slb.RealServer.__init__()=slb.RealServer-class.html#__init__,Method slb.RealServerStats.__init__()=slb.RealServerStats-class.html#__init__,Method slb.ServiceGroupStats.__init__()=slb.ServiceGroupStats-class.html#__init__,Method slb.VirtualServer.__init__()=slb.VirtualServer-class.html#__init__,Method slb.VirtualServerStats.__init__()=slb.VirtualServerStats-class.html#__init__"><a title="base.AxAPIError.__init__
+base.AxDictObject.__init__
+base.AxObject.__init__
+gslb.GslbPolicy.__init__
+gslb.GslbSite.__init__
+method_call.AxApiContext.__init__
+method_call._XmlDict.__init__
+method_call._XmlList.__init__
+slb.RealServer.__init__
+slb.RealServerStats.__init__
+slb.ServiceGroupStats.__init__
+slb.VirtualServer.__init__
+slb.VirtualServerStats.__init__" class="py-name" href="#" onclick="return doclink('link-36', '__init__', 'link-36');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt class="py-string">"%i : %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">code</tt><tt class="py-op">,</tt><tt class="py-name">message</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">code</tt> <tt class="py-op">=</tt> <tt class="py-name">code</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-name">message</tt> </tt>
+</div></div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="AxDictObject"></a><div id="AxDictObject-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="AxDictObject-toggle" onclick="return toggle('AxDictObject');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="base.AxDictObject-class.html">AxDictObject</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxDictObject-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AxDictObject-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        Transform recursively JSON dictionaries into objects</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="AxDictObject.__init__"></a><div id="AxDictObject.__init__-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="AxDictObject.__init__-toggle" onclick="return toggle('AxDictObject.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxDictObject-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">,</tt><tt class="py-param">obj_dict</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxDictObject.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxDictObject.__init__-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">obj_dict</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt><tt class="py-name">dict</tt><tt class="py-op">)</tt> <tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">v</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name" targets="Class base.AxDictObject=base.AxDictObject-class.html"><a title="base.AxDictObject" class="py-name" href="#" onclick="return doclink('link-37', 'AxDictObject', 'link-37');">AxDictObject</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt><tt class="py-name">list</tt><tt class="py-op">)</tt> <tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">v</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt id="link-38" class="py-name"><a title="base.AxDictObject" class="py-name" href="#" onclick="return doclink('link-38', 'AxDictObject', 'link-37');">AxDictObject</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">vi</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">vi</tt> <tt class="py-keyword">in</tt> <tt class="py-name">v</tt> <tt class="py-op">]</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt> </tt>
+</div></div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="AxObject"></a><div id="AxObject-def"><a name="L84"></a><tt class="py-lineno"> 84</tt> <a class="py-toggle" href="#" id="AxObject-toggle" onclick="return toggle('AxObject');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="base.AxObject-class.html">AxObject</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AxObject-expanded"><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">        Base Object for aXAPI Objects</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt id="link-39" class="py-name" targets="Variable base.AxObject.__display__=base.AxObject-class.html#__display__,Variable gslb.GslbDnsProxy.__display__=gslb.GslbDnsProxy-class.html#__display__,Variable gslb.GslbPolicy.__display__=gslb.GslbPolicy-class.html#__display__,Variable gslb.GslbServiceIP.__display__=gslb.GslbServiceIP-class.html#__display__,Variable gslb.GslbSite.__display__=gslb.GslbSite-class.html#__display__,Variable gslb.GslbSnmpTemplate.__display__=gslb.GslbSnmpTemplate-class.html#__display__,Variable gslb.GslbZone.__display__=gslb.GslbZone-class.html#__display__,Variable method_call.AxApiContext.__display__=method_call.AxApiContext-class.html#__display__,Variable network.Interface.__display__=network.Interface-class.html#__display__,Variable network.VirtualInterface.__display__=network.VirtualInterface-class.html#__display__,Variable slb.RealServer.__display__=slb.RealServer-class.html#__display__,Variable slb.RealServerStats.__display__=slb.RealServerStats-class.html#__display__,Variable slb.ServiceGroup.__display__=slb.ServiceGroup-class.html#__display__,Variable slb.ServiceGroupStats.__display__=slb.ServiceGroupStats-class.html#__display__,Variable slb.VirtualServer.__display__=slb.VirtualServer-class.html#__display__,Variable slb.VirtualServerStats.__display__=slb.VirtualServerStats-class.html#__display__,Variable slb_template.Template.__display__=slb_template.Template-class.html#__display__,Variable slb_template.TemplateCache.__display__=slb_template.TemplateCache-class.html#__display__,Variable slb_template.TemplateConnReuse.__display__=slb_template.TemplateConnReuse-class.html#__display__,Variable slb_template.TemplateCookiePersist.__display__=slb_template.TemplateCookiePersist-class.html#__display__,Variable slb_template.TemplateDestinationIp.__display__=slb_template.TemplateDestinationIp-class.html#__display__,Variable slb_template.TemplateDiameter.__display__=slb_template.TemplateDiameter-class.html#__display__,Variable slb_template.TemplateDns.__display__=slb_template.TemplateDns-class.html#__display__,Variable slb_template.TemplateHttp.__display__=slb_template.TemplateHttp-class.html#__display__,Variable slb_template.TemplatePbslb.__display__=slb_template.TemplatePbslb-class.html#__display__,Variable slb_template.TemplateRtsp.__display__=slb_template.TemplateRtsp-class.html#__display__,Variable slb_template.TemplateServer.__display__=slb_template.TemplateServer-class.html#__display__,Variable slb_template.TemplateServerPort.__display__=slb_template.TemplateServerPort-class.html#__display__,Variable slb_template.TemplateSip.__display__=slb_template.TemplateSip-class.html#__display__,Variable slb_template.TemplateSmtp.__display__=slb_template.TemplateSmtp-class.html#__display__,Variable slb_template.TemplateSourceIpPersist.__display__=slb_template.TemplateSourceIpPersist-class.html#__display__,Variable slb_template.TemplateSslPersist.__display__=slb_template.TemplateSslPersist-class.html#__display__,Variable slb_template.TemplateTcp.__display__=slb_template.TemplateTcp-class.html#__display__,Variable slb_template.TemplateTcpProxy.__display__=slb_template.TemplateTcpProxy-class.html#__display__,Variable slb_template.TemplateUdp.__display__=slb_template.TemplateUdp-class.html#__display__,Variable slb_template.TemplateVipPort.__display__=slb_template.TemplateVipPort-class.html#__display__,Variable slb_template.TemplateVirtualServer.__display__=slb_template.TemplateVirtualServer-class.html#__display__,Variable system.SystemNtp.__display__=system.SystemNtp-class.html#__display__"><a title="base.AxObject.__display__
+gslb.GslbDnsProxy.__display__
+gslb.GslbPolicy.__display__
+gslb.GslbServiceIP.__display__
+gslb.GslbSite.__display__
+gslb.GslbSnmpTemplate.__display__
+gslb.GslbZone.__display__
+method_call.AxApiContext.__display__
+network.Interface.__display__
+network.VirtualInterface.__display__
+slb.RealServer.__display__
+slb.RealServerStats.__display__
+slb.ServiceGroup.__display__
+slb.ServiceGroupStats.__display__
+slb.VirtualServer.__display__
+slb.VirtualServerStats.__display__
+slb_template.Template.__display__
+slb_template.TemplateCache.__display__
+slb_template.TemplateConnReuse.__display__
+slb_template.TemplateCookiePersist.__display__
+slb_template.TemplateDestinationIp.__display__
+slb_template.TemplateDiameter.__display__
+slb_template.TemplateDns.__display__
+slb_template.TemplateHttp.__display__
+slb_template.TemplatePbslb.__display__
+slb_template.TemplateRtsp.__display__
+slb_template.TemplateServer.__display__
+slb_template.TemplateServerPort.__display__
+slb_template.TemplateSip.__display__
+slb_template.TemplateSmtp.__display__
+slb_template.TemplateSourceIpPersist.__display__
+slb_template.TemplateSslPersist.__display__
+slb_template.TemplateTcp.__display__
+slb_template.TemplateTcpProxy.__display__
+slb_template.TemplateUdp.__display__
+slb_template.TemplateVipPort.__display__
+slb_template.TemplateVirtualServer.__display__
+system.SystemNtp.__display__" class="py-name" href="#" onclick="return doclink('link-39', '__display__', 'link-39');">__display__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt id="link-40" class="py-name" targets="Variable base.AxObject.__obj_name__=base.AxObject-class.html#__obj_name__,Variable gslb.GslbDnsProxy.__obj_name__=gslb.GslbDnsProxy-class.html#__obj_name__,Variable gslb.GslbPolicy.__obj_name__=gslb.GslbPolicy-class.html#__obj_name__,Variable gslb.GslbServiceIP.__obj_name__=gslb.GslbServiceIP-class.html#__obj_name__,Variable gslb.GslbSite.__obj_name__=gslb.GslbSite-class.html#__obj_name__,Variable gslb.GslbSnmpTemplate.__obj_name__=gslb.GslbSnmpTemplate-class.html#__obj_name__,Variable gslb.GslbZone.__obj_name__=gslb.GslbZone-class.html#__obj_name__,Variable network.Interface.__obj_name__=network.Interface-class.html#__obj_name__,Variable network.VirtualInterface.__obj_name__=network.VirtualInterface-class.html#__obj_name__,Variable slb.RealServer.__obj_name__=slb.RealServer-class.html#__obj_name__,Variable slb.RealServerStats.__obj_name__=slb.RealServerStats-class.html#__obj_name__,Variable slb.ServiceGroup.__obj_name__=slb.ServiceGroup-class.html#__obj_name__,Variable slb.ServiceGroupStats.__obj_name__=slb.ServiceGroupStats-class.html#__obj_name__,Variable slb.VirtualServer.__obj_name__=slb.VirtualServer-class.html#__obj_name__,Variable slb.VirtualServerStats.__obj_name__=slb.VirtualServerStats-class.html#__obj_name__,Variable slb_template.Template.__obj_name__=slb_template.Template-class.html#__obj_name__,Variable slb_template.TemplateCache.__obj_name__=slb_template.TemplateCache-class.html#__obj_name__,Variable slb_template.TemplateConnReuse.__obj_name__=slb_template.TemplateConnReuse-class.html#__obj_name__,Variable slb_template.TemplateCookiePersist.__obj_name__=slb_template.TemplateCookiePersist-class.html#__obj_name__,Variable slb_template.TemplateDestinationIp.__obj_name__=slb_template.TemplateDestinationIp-class.html#__obj_name__,Variable slb_template.TemplateDiameter.__obj_name__=slb_template.TemplateDiameter-class.html#__obj_name__,Variable slb_template.TemplateDns.__obj_name__=slb_template.TemplateDns-class.html#__obj_name__,Variable slb_template.TemplateHttp.__obj_name__=slb_template.TemplateHttp-class.html#__obj_name__,Variable slb_template.TemplatePbslb.__obj_name__=slb_template.TemplatePbslb-class.html#__obj_name__,Variable slb_template.TemplateRtsp.__obj_name__=slb_template.TemplateRtsp-class.html#__obj_name__,Variable slb_template.TemplateServer.__obj_name__=slb_template.TemplateServer-class.html#__obj_name__,Variable slb_template.TemplateServerPort.__obj_name__=slb_template.TemplateServerPort-class.html#__obj_name__,Variable slb_template.TemplateSip.__obj_name__=slb_template.TemplateSip-class.html#__obj_name__,Variable slb_template.TemplateSmtp.__obj_name__=slb_template.TemplateSmtp-class.html#__obj_name__,Variable slb_template.TemplateSourceIpPersist.__obj_name__=slb_template.TemplateSourceIpPersist-class.html#__obj_name__,Variable slb_template.TemplateSslPersist.__obj_name__=slb_template.TemplateSslPersist-class.html#__obj_name__,Variable slb_template.TemplateTcp.__obj_name__=slb_template.TemplateTcp-class.html#__obj_name__,Variable slb_template.TemplateTcpProxy.__obj_name__=slb_template.TemplateTcpProxy-class.html#__obj_name__,Variable slb_template.TemplateUdp.__obj_name__=slb_template.TemplateUdp-class.html#__obj_name__,Variable slb_template.TemplateVipPort.__obj_name__=slb_template.TemplateVipPort-class.html#__obj_name__,Variable slb_template.TemplateVirtualServer.__obj_name__=slb_template.TemplateVirtualServer-class.html#__obj_name__,Variable system.SystemNtp.__obj_name__=system.SystemNtp-class.html#__obj_name__"><a title="base.AxObject.__obj_name__
+gslb.GslbDnsProxy.__obj_name__
+gslb.GslbPolicy.__obj_name__
+gslb.GslbServiceIP.__obj_name__
+gslb.GslbSite.__obj_name__
+gslb.GslbSnmpTemplate.__obj_name__
+gslb.GslbZone.__obj_name__
+network.Interface.__obj_name__
+network.VirtualInterface.__obj_name__
+slb.RealServer.__obj_name__
+slb.RealServerStats.__obj_name__
+slb.ServiceGroup.__obj_name__
+slb.ServiceGroupStats.__obj_name__
+slb.VirtualServer.__obj_name__
+slb.VirtualServerStats.__obj_name__
+slb_template.Template.__obj_name__
+slb_template.TemplateCache.__obj_name__
+slb_template.TemplateConnReuse.__obj_name__
+slb_template.TemplateCookiePersist.__obj_name__
+slb_template.TemplateDestinationIp.__obj_name__
+slb_template.TemplateDiameter.__obj_name__
+slb_template.TemplateDns.__obj_name__
+slb_template.TemplateHttp.__obj_name__
+slb_template.TemplatePbslb.__obj_name__
+slb_template.TemplateRtsp.__obj_name__
+slb_template.TemplateServer.__obj_name__
+slb_template.TemplateServerPort.__obj_name__
+slb_template.TemplateSip.__obj_name__
+slb_template.TemplateSmtp.__obj_name__
+slb_template.TemplateSourceIpPersist.__obj_name__
+slb_template.TemplateSslPersist.__obj_name__
+slb_template.TemplateTcp.__obj_name__
+slb_template.TemplateTcpProxy.__obj_name__
+slb_template.TemplateUdp.__obj_name__
+slb_template.TemplateVipPort.__obj_name__
+slb_template.TemplateVirtualServer.__obj_name__
+system.SystemNtp.__obj_name__" class="py-name" href="#" onclick="return doclink('link-40', '__obj_name__', 'link-40');">__obj_name__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt id="link-41" class="py-name" targets="Variable base.AxObject.__obj_readonly__=base.AxObject-class.html#__obj_readonly__,Variable slb.RealServerStats.__obj_readonly__=slb.RealServerStats-class.html#__obj_readonly__,Variable slb.ServiceGroupStats.__obj_readonly__=slb.ServiceGroupStats-class.html#__obj_readonly__,Variable slb.VirtualServerStats.__obj_readonly__=slb.VirtualServerStats-class.html#__obj_readonly__"><a title="base.AxObject.__obj_readonly__
+slb.RealServerStats.__obj_readonly__
+slb.ServiceGroupStats.__obj_readonly__
+slb.VirtualServerStats.__obj_readonly__" class="py-name" href="#" onclick="return doclink('link-41', '__obj_readonly__', 'link-41');">__obj_readonly__</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt id="link-42" class="py-name" targets="Variable base.AxObject.__xml_convrt__=base.AxObject-class.html#__xml_convrt__,Variable gslb.GslbDnsProxy.__xml_convrt__=gslb.GslbDnsProxy-class.html#__xml_convrt__,Variable gslb.GslbPolicy.__xml_convrt__=gslb.GslbPolicy-class.html#__xml_convrt__,Variable gslb.GslbServiceIP.__xml_convrt__=gslb.GslbServiceIP-class.html#__xml_convrt__,Variable gslb.GslbSite.__xml_convrt__=gslb.GslbSite-class.html#__xml_convrt__,Variable gslb.GslbSnmpTemplate.__xml_convrt__=gslb.GslbSnmpTemplate-class.html#__xml_convrt__,Variable gslb.GslbZone.__xml_convrt__=gslb.GslbZone-class.html#__xml_convrt__,Variable network.Interface.__xml_convrt__=network.Interface-class.html#__xml_convrt__,Variable network.VirtualInterface.__xml_convrt__=network.VirtualInterface-class.html#__xml_convrt__,Variable slb.RealServer.__xml_convrt__=slb.RealServer-class.html#__xml_convrt__,Variable slb.RealServerStats.__xml_convrt__=slb.RealServerStats-class.html#__xml_convrt__,Variable slb.ServiceGroup.__xml_convrt__=slb.ServiceGroup-class.html#__xml_convrt__,Variable slb.ServiceGroupStats.__xml_convrt__=slb.ServiceGroupStats-class.html#__xml_convrt__,Variable slb.VirtualServer.__xml_convrt__=slb.VirtualServer-class.html#__xml_convrt__,Variable slb.VirtualServerStats.__xml_convrt__=slb.VirtualServerStats-class.html#__xml_convrt__,Variable slb_template.Template.__xml_convrt__=slb_template.Template-class.html#__xml_convrt__,Variable slb_template.TemplateCache.__xml_convrt__=slb_template.TemplateCache-class.html#__xml_convrt__,Variable slb_template.TemplateConnReuse.__xml_convrt__=slb_template.TemplateConnReuse-class.html#__xml_convrt__,Variable slb_template.TemplateCookiePersist.__xml_convrt__=slb_template.TemplateCookiePersist-class.html#__xml_convrt__,Variable slb_template.TemplateDestinationIp.__xml_convrt__=slb_template.TemplateDestinationIp-class.html#__xml_convrt__,Variable slb_template.TemplateDiameter.__xml_convrt__=slb_template.TemplateDiameter-class.html#__xml_convrt__,Variable slb_template.TemplateDns.__xml_convrt__=slb_template.TemplateDns-class.html#__xml_convrt__,Variable slb_template.TemplateHttp.__xml_convrt__=slb_template.TemplateHttp-class.html#__xml_convrt__,Variable slb_template.TemplatePbslb.__xml_convrt__=slb_template.TemplatePbslb-class.html#__xml_convrt__,Variable slb_template.TemplateRtsp.__xml_convrt__=slb_template.TemplateRtsp-class.html#__xml_convrt__,Variable slb_template.TemplateServer.__xml_convrt__=slb_template.TemplateServer-class.html#__xml_convrt__,Variable slb_template.TemplateServerPort.__xml_convrt__=slb_template.TemplateServerPort-class.html#__xml_convrt__,Variable slb_template.TemplateSip.__xml_convrt__=slb_template.TemplateSip-class.html#__xml_convrt__,Variable slb_template.TemplateSmtp.__xml_convrt__=slb_template.TemplateSmtp-class.html#__xml_convrt__,Variable slb_template.TemplateSourceIpPersist.__xml_convrt__=slb_template.TemplateSourceIpPersist-class.html#__xml_convrt__,Variable slb_template.TemplateSslPersist.__xml_convrt__=slb_template.TemplateSslPersist-class.html#__xml_convrt__,Variable slb_template.TemplateTcp.__xml_convrt__=slb_template.TemplateTcp-class.html#__xml_convrt__,Variable slb_template.TemplateTcpProxy.__xml_convrt__=slb_template.TemplateTcpProxy-class.html#__xml_convrt__,Variable slb_template.TemplateUdp.__xml_convrt__=slb_template.TemplateUdp-class.html#__xml_convrt__,Variable slb_template.TemplateVipPort.__xml_convrt__=slb_template.TemplateVipPort-class.html#__xml_convrt__,Variable slb_template.TemplateVirtualServer.__xml_convrt__=slb_template.TemplateVirtualServer-class.html#__xml_convrt__,Variable system.SystemNtp.__xml_convrt__=system.SystemNtp-class.html#__xml_convrt__"><a title="base.AxObject.__xml_convrt__
+gslb.GslbDnsProxy.__xml_convrt__
+gslb.GslbPolicy.__xml_convrt__
+gslb.GslbServiceIP.__xml_convrt__
+gslb.GslbSite.__xml_convrt__
+gslb.GslbSnmpTemplate.__xml_convrt__
+gslb.GslbZone.__xml_convrt__
+network.Interface.__xml_convrt__
+network.VirtualInterface.__xml_convrt__
+slb.RealServer.__xml_convrt__
+slb.RealServerStats.__xml_convrt__
+slb.ServiceGroup.__xml_convrt__
+slb.ServiceGroupStats.__xml_convrt__
+slb.VirtualServer.__xml_convrt__
+slb.VirtualServerStats.__xml_convrt__
+slb_template.Template.__xml_convrt__
+slb_template.TemplateCache.__xml_convrt__
+slb_template.TemplateConnReuse.__xml_convrt__
+slb_template.TemplateCookiePersist.__xml_convrt__
+slb_template.TemplateDestinationIp.__xml_convrt__
+slb_template.TemplateDiameter.__xml_convrt__
+slb_template.TemplateDns.__xml_convrt__
+slb_template.TemplateHttp.__xml_convrt__
+slb_template.TemplatePbslb.__xml_convrt__
+slb_template.TemplateRtsp.__xml_convrt__
+slb_template.TemplateServer.__xml_convrt__
+slb_template.TemplateServerPort.__xml_convrt__
+slb_template.TemplateSip.__xml_convrt__
+slb_template.TemplateSmtp.__xml_convrt__
+slb_template.TemplateSourceIpPersist.__xml_convrt__
+slb_template.TemplateSslPersist.__xml_convrt__
+slb_template.TemplateTcp.__xml_convrt__
+slb_template.TemplateTcpProxy.__xml_convrt__
+slb_template.TemplateUdp.__xml_convrt__
+slb_template.TemplateVipPort.__xml_convrt__
+slb_template.TemplateVirtualServer.__xml_convrt__
+system.SystemNtp.__xml_convrt__" class="py-name" href="#" onclick="return doclink('link-42', '__xml_convrt__', 'link-42');">__xml_convrt__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__init__"></a><div id="AxObject.__init__-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="AxObject.__init__-toggle" onclick="return toggle('AxObject.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">params</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__init__-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method base.AxObject._set_properties()=base.AxObject-class.html#_set_properties"><a title="base.AxObject._set_properties" class="py-name" href="#" onclick="return doclink('link-43', '_set_properties', 'link-43');">_set_properties</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="AxObject._set_properties"></a><div id="AxObject._set_properties-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="AxObject._set_properties-toggle" onclick="return toggle('AxObject._set_properties');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#_set_properties">_set_properties</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">params</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject._set_properties-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject._set_properties-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Method gslb.GslbDnsProxy.update()=gslb.GslbDnsProxy-class.html#update,Method gslb.GslbGlobalSettings.update()=gslb.GslbGlobalSettings-class.html#update,Method gslb.GslbPolicy.update()=gslb.GslbPolicy-class.html#update,Method gslb.GslbServiceIP.update()=gslb.GslbServiceIP-class.html#update,Method gslb.GslbSite.update()=gslb.GslbSite-class.html#update,Method gslb.GslbSnmpTemplate.update()=gslb.GslbSnmpTemplate-class.html#update,Method gslb.GslbZone.update()=gslb.GslbZone-class.html#update,Method slb.RealServer.update()=slb.RealServer-class.html#update,Method slb.ServiceGroup.update()=slb.ServiceGroup-class.html#update,Method slb.VirtualServer.update()=slb.VirtualServer-class.html#update,Method slb_template.Template.update()=slb_template.Template-class.html#update,Method slb_template.TemplateCache.update()=slb_template.TemplateCache-class.html#update,Method slb_template.TemplateConnReuse.update()=slb_template.TemplateConnReuse-class.html#update,Method slb_template.TemplateCookiePersist.update()=slb_template.TemplateCookiePersist-class.html#update,Method slb_template.TemplateDestinationIp.update()=slb_template.TemplateDestinationIp-class.html#update,Method slb_template.TemplateDiameter.update()=slb_template.TemplateDiameter-class.html#update,Method slb_template.TemplateDns.update()=slb_template.TemplateDns-class.html#update,Method slb_template.TemplateHttp.update()=slb_template.TemplateHttp-class.html#update,Method slb_template.TemplatePbslb.update()=slb_template.TemplatePbslb-class.html#update,Method slb_template.TemplateRtsp.update()=slb_template.TemplateRtsp-class.html#update,Method slb_template.TemplateServer.update()=slb_template.TemplateServer-class.html#update,Method slb_template.TemplateServerPort.update()=slb_template.TemplateServerPort-class.html#update,Method slb_template.TemplateSip.update()=slb_template.TemplateSip-class.html#update,Method slb_template.TemplateSmtp.update()=slb_template.TemplateSmtp-class.html#update,Method slb_template.TemplateSourceIpPersist.update()=slb_template.TemplateSourceIpPersist-class.html#update,Method slb_template.TemplateSslPersist.update()=slb_template.TemplateSslPersist-class.html#update,Method slb_template.TemplateTcp.update()=slb_template.TemplateTcp-class.html#update,Method slb_template.TemplateTcpProxy.update()=slb_template.TemplateTcpProxy-class.html#update,Method slb_template.TemplateUdp.update()=slb_template.TemplateUdp-class.html#update,Method slb_template.TemplateVipPort.update()=slb_template.TemplateVipPort-class.html#update,Method slb_template.TemplateVirtualServer.update()=slb_template.TemplateVirtualServer-class.html#update,Method system.SystemNtp.update()=system.SystemNtp-class.html#update"><a title="gslb.GslbDnsProxy.update
+gslb.GslbGlobalSettings.update
+gslb.GslbPolicy.update
+gslb.GslbServiceIP.update
+gslb.GslbSite.update
+gslb.GslbSnmpTemplate.update
+gslb.GslbZone.update
+slb.RealServer.update
+slb.ServiceGroup.update
+slb.VirtualServer.update
+slb_template.Template.update
+slb_template.TemplateCache.update
+slb_template.TemplateConnReuse.update
+slb_template.TemplateCookiePersist.update
+slb_template.TemplateDestinationIp.update
+slb_template.TemplateDiameter.update
+slb_template.TemplateDns.update
+slb_template.TemplateHttp.update
+slb_template.TemplatePbslb.update
+slb_template.TemplateRtsp.update
+slb_template.TemplateServer.update
+slb_template.TemplateServerPort.update
+slb_template.TemplateSip.update
+slb_template.TemplateSmtp.update
+slb_template.TemplateSourceIpPersist.update
+slb_template.TemplateSslPersist.update
+slb_template.TemplateTcp.update
+slb_template.TemplateTcpProxy.update
+slb_template.TemplateUdp.update
+slb_template.TemplateVipPort.update
+slb_template.TemplateVirtualServer.update
+system.SystemNtp.update" class="py-name" href="#" onclick="return doclink('link-44', 'update', 'link-44');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__getattr__"></a><div id="AxObject.__getattr__-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="AxObject.__getattr__-toggle" onclick="return toggle('AxObject.__getattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__getattr__">__getattr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__getattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__getattr__-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">name</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> <tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-comment">#if not self.loaded :</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-comment">#    self.load()</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-string">"UNKONWN"</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt> <tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">name</tt><tt class="py-op">]</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt> <tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">(</tt><tt class="py-string">"'%s' object has no attribute '%s'"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-name">name</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__setattr__"></a><div id="AxObject.__setattr__-def"><a name="L109"></a><tt class="py-lineno">109</tt> <a class="py-toggle" href="#" id="AxObject.__setattr__-toggle" onclick="return toggle('AxObject.__setattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__setattr__">__setattr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">,</tt><tt class="py-param">values</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__setattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__setattr__-expanded"><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="base.AxObject.__obj_readonly__
+slb.RealServerStats.__obj_readonly__
+slb.ServiceGroupStats.__obj_readonly__
+slb.VirtualServerStats.__obj_readonly__" class="py-name" href="#" onclick="return doclink('link-45', '__obj_readonly__', 'link-41');">__obj_readonly__</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-46" class="py-name"><a title="base.AxError" class="py-name" href="#" onclick="return doclink('link-46', 'AxError', 'link-35');">AxError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Read-only instance"</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">name</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">values</tt> </tt>
+</div><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.get"></a><div id="AxObject.get-def"><a name="L115"></a><tt class="py-lineno">115</tt> <a class="py-toggle" href="#" id="AxObject.get-toggle" onclick="return toggle('AxObject.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">key</tt><tt class="py-op">,</tt><tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.get-expanded"><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method base.AxObject.get()=base.AxObject-class.html#get,Static Method network.Interface.get()=network.Interface-class.html#get,Static Method network.VirtualInterface.get()=network.VirtualInterface-class.html#get"><a title="base.AxObject.get
+network.Interface.get
+network.VirtualInterface.get" class="py-name" href="#" onclick="return doclink('link-47', 'get', 'link-47');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">,</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__getitem__"></a><div id="AxObject.__getitem__-def"><a name="L118"></a><tt class="py-lineno">118</tt> <a class="py-toggle" href="#" id="AxObject.__getitem__-toggle" onclick="return toggle('AxObject.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__getitem__-expanded"><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__setitem__"></a><div id="AxObject.__setitem__-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="AxObject.__setitem__-toggle" onclick="return toggle('AxObject.__setitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__setitem__">__setitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">key</tt><tt class="py-op">,</tt><tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__setitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__setitem__-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="base.AxObject.__obj_readonly__
+slb.RealServerStats.__obj_readonly__
+slb.ServiceGroupStats.__obj_readonly__
+slb.VirtualServerStats.__obj_readonly__" class="py-name" href="#" onclick="return doclink('link-48', '__obj_readonly__', 'link-41');">__obj_readonly__</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-49" class="py-name"><a title="base.AxError" class="py-name" href="#" onclick="return doclink('link-49', 'AxError', 'link-35');">AxError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Read-only instance"</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt> </tt>
+</div><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="AxObject.__str__"></a><div id="AxObject.__str__-def"><a name="L127"></a><tt class="py-lineno">127</tt> <a class="py-toggle" href="#" id="AxObject.__str__-toggle" onclick="return toggle('AxObject.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.__str__-expanded"><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">vals</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="base.AxObject.__display__
+gslb.GslbDnsProxy.__display__
+gslb.GslbPolicy.__display__
+gslb.GslbServiceIP.__display__
+gslb.GslbSite.__display__
+gslb.GslbSnmpTemplate.__display__
+gslb.GslbZone.__display__
+method_call.AxApiContext.__display__
+network.Interface.__display__
+network.VirtualInterface.__display__
+slb.RealServer.__display__
+slb.RealServerStats.__display__
+slb.ServiceGroup.__display__
+slb.ServiceGroupStats.__display__
+slb.VirtualServer.__display__
+slb.VirtualServerStats.__display__
+slb_template.Template.__display__
+slb_template.TemplateCache.__display__
+slb_template.TemplateConnReuse.__display__
+slb_template.TemplateCookiePersist.__display__
+slb_template.TemplateDestinationIp.__display__
+slb_template.TemplateDiameter.__display__
+slb_template.TemplateDns.__display__
+slb_template.TemplateHttp.__display__
+slb_template.TemplatePbslb.__display__
+slb_template.TemplateRtsp.__display__
+slb_template.TemplateServer.__display__
+slb_template.TemplateServerPort.__display__
+slb_template.TemplateSip.__display__
+slb_template.TemplateSmtp.__display__
+slb_template.TemplateSourceIpPersist.__display__
+slb_template.TemplateSslPersist.__display__
+slb_template.TemplateTcp.__display__
+slb_template.TemplateTcpProxy.__display__
+slb_template.TemplateUdp.__display__
+slb_template.TemplateVipPort.__display__
+slb_template.TemplateVirtualServer.__display__
+system.SystemNtp.__display__" class="py-name" href="#" onclick="return doclink('link-50', '__display__', 'link-39');">__display__</a></tt> <tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">            <tt class="py-name">val_found</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt> <tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                <tt class="py-name">val_found</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt> <tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                <tt class="py-comment">#self.load()</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt> <tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                    <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                    <tt class="py-name">val_found</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt> <tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">val_found</tt> <tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">unicode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-string">"utf8"</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">,</tt><tt class="py-name">str</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-string">"'%s'"</tt><tt class="py-op">%</tt><tt class="py-name">value</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt> <tt class="py-op">:</tt> <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">20</tt><tt class="py-op">:</tt> <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">20</tt><tt class="py-op">]</tt><tt class="py-op">+</tt><tt class="py-string">"..."</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-name">vals</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">"%s = %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"%s(%s)"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">vals</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.__repr__"></a><div id="AxObject.__repr__-def"><a name="L150"></a><tt class="py-lineno">150</tt> <a class="py-toggle" href="#" id="AxObject.__repr__-toggle" onclick="return toggle('AxObject.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="AxObject.getRequestPostDataJson"></a><div id="AxObject.getRequestPostDataJson-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="AxObject.getRequestPostDataJson-toggle" onclick="return toggle('AxObject.getRequestPostDataJson');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#getRequestPostDataJson">getRequestPostDataJson</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.getRequestPostDataJson-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.getRequestPostDataJson-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="base.AxObject.__obj_name__
+gslb.GslbDnsProxy.__obj_name__
+gslb.GslbPolicy.__obj_name__
+gslb.GslbServiceIP.__obj_name__
+gslb.GslbSite.__obj_name__
+gslb.GslbSnmpTemplate.__obj_name__
+gslb.GslbZone.__obj_name__
+network.Interface.__obj_name__
+network.VirtualInterface.__obj_name__
+slb.RealServer.__obj_name__
+slb.RealServerStats.__obj_name__
+slb.ServiceGroup.__obj_name__
+slb.ServiceGroupStats.__obj_name__
+slb.VirtualServer.__obj_name__
+slb.VirtualServerStats.__obj_name__
+slb_template.Template.__obj_name__
+slb_template.TemplateCache.__obj_name__
+slb_template.TemplateConnReuse.__obj_name__
+slb_template.TemplateCookiePersist.__obj_name__
+slb_template.TemplateDestinationIp.__obj_name__
+slb_template.TemplateDiameter.__obj_name__
+slb_template.TemplateDns.__obj_name__
+slb_template.TemplateHttp.__obj_name__
+slb_template.TemplatePbslb.__obj_name__
+slb_template.TemplateRtsp.__obj_name__
+slb_template.TemplateServer.__obj_name__
+slb_template.TemplateServerPort.__obj_name__
+slb_template.TemplateSip.__obj_name__
+slb_template.TemplateSmtp.__obj_name__
+slb_template.TemplateSourceIpPersist.__obj_name__
+slb_template.TemplateSslPersist.__obj_name__
+slb_template.TemplateTcp.__obj_name__
+slb_template.TemplateTcpProxy.__obj_name__
+slb_template.TemplateUdp.__obj_name__
+slb_template.TemplateVipPort.__obj_name__
+slb_template.TemplateVirtualServer.__obj_name__
+system.SystemNtp.__obj_name__" class="py-name" href="#" onclick="return doclink('link-51', '__obj_name__', 'link-40');">__obj_name__</a></tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt> <tt class="py-op">:</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">            <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">            <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="base.AxObject.__obj_name__
+gslb.GslbDnsProxy.__obj_name__
+gslb.GslbPolicy.__obj_name__
+gslb.GslbServiceIP.__obj_name__
+gslb.GslbSite.__obj_name__
+gslb.GslbSnmpTemplate.__obj_name__
+gslb.GslbZone.__obj_name__
+network.Interface.__obj_name__
+network.VirtualInterface.__obj_name__
+slb.RealServer.__obj_name__
+slb.RealServerStats.__obj_name__
+slb.ServiceGroup.__obj_name__
+slb.ServiceGroupStats.__obj_name__
+slb.VirtualServer.__obj_name__
+slb.VirtualServerStats.__obj_name__
+slb_template.Template.__obj_name__
+slb_template.TemplateCache.__obj_name__
+slb_template.TemplateConnReuse.__obj_name__
+slb_template.TemplateCookiePersist.__obj_name__
+slb_template.TemplateDestinationIp.__obj_name__
+slb_template.TemplateDiameter.__obj_name__
+slb_template.TemplateDns.__obj_name__
+slb_template.TemplateHttp.__obj_name__
+slb_template.TemplatePbslb.__obj_name__
+slb_template.TemplateRtsp.__obj_name__
+slb_template.TemplateServer.__obj_name__
+slb_template.TemplateServerPort.__obj_name__
+slb_template.TemplateSip.__obj_name__
+slb_template.TemplateSmtp.__obj_name__
+slb_template.TemplateSourceIpPersist.__obj_name__
+slb_template.TemplateSslPersist.__obj_name__
+slb_template.TemplateTcp.__obj_name__
+slb_template.TemplateTcpProxy.__obj_name__
+slb_template.TemplateUdp.__obj_name__
+slb_template.TemplateVipPort.__obj_name__
+slb_template.TemplateVirtualServer.__obj_name__
+system.SystemNtp.__obj_name__" class="py-name" href="#" onclick="return doclink('link-52', '__obj_name__', 'link-40');">__obj_name__</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt> <tt class="py-op">:</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">            <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="AxObject._generateListInUrl"></a><div id="AxObject._generateListInUrl-def"><a name="L160"></a><tt class="py-lineno">160</tt> <a class="py-toggle" href="#" id="AxObject._generateListInUrl-toggle" onclick="return toggle('AxObject._generateListInUrl');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#_generateListInUrl">_generateListInUrl</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key_name_str</tt><tt class="py-op">,</tt> <tt class="py-param">val_name</tt><tt class="py-op">,</tt> <tt class="py-param">aList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject._generateListInUrl-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject._generateListInUrl-expanded"><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-name">count</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-name">resp_key</tt> <tt class="py-op">=</tt> <tt class="py-name">key_name_str</tt><tt class="py-op">+</tt><tt class="py-string">"="</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">aList</tt><tt class="py-op">:</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">,</tt> <tt class="py-name">dict</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">                <tt class="py-comment"># it has to be a Dictionary!</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">is_first</tt><tt class="py-op">:</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">                    <tt class="py-name">resp_key</tt> <tt class="py-op">+=</tt> <tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                    <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-string">"&amp;"</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                <tt class="py-name">resp_key</tt> <tt class="py-op">+=</tt> <tt class="py-name">val_name</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">count</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">                <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method base.AxObject._generateDictInUrl()=base.AxObject-class.html#_generateDictInUrl"><a title="base.AxObject._generateDictInUrl" class="py-name" href="#" onclick="return doclink('link-53', '_generateDictInUrl', 'link-53');">_generateDictInUrl</a></tt><tt class="py-op">(</tt><tt class="py-name">val_name</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">count</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">                <tt class="py-comment"># otherwise, don't know to handle</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-54" class="py-name" targets="Class base.AxAPIError=base.AxAPIError-class.html"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-54', 'AxAPIError', 'link-54');">AxAPIError</a></tt><tt class="py-op">(</tt><tt class="py-name">code</tt><tt class="py-op">=</tt><tt class="py-number">99</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">=</tt><tt class="py-string">"invalid dictionary object"</tt><tt class="py-op">)</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-name">count</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">            <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">resp_key</tt><tt class="py-op">+</tt><tt class="py-string">"&amp;"</tt><tt class="py-op">+</tt><tt class="py-name">resp</tt> </tt>
+</div><a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">     </tt>
+<a name="AxObject._generateDictInUrl"></a><div id="AxObject._generateDictInUrl-def"><a name="L180"></a><tt class="py-lineno">180</tt> <a class="py-toggle" href="#" id="AxObject._generateDictInUrl-toggle" onclick="return toggle('AxObject._generateDictInUrl');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#_generateDictInUrl">_generateDictInUrl</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key_name_str</tt><tt class="py-op">,</tt> <tt class="py-param">aDict</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject._generateDictInUrl-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject._generateDictInUrl-expanded"><a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-name">key_name_str</tt><tt class="py-op">+</tt><tt class="py-string">"="</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">aDict</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">int</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">is_first</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">                    <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-name">k</tt><tt class="py-op">+</tt><tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">                <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">is_first</tt><tt class="py-op">:</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">                    <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">                <tt class="py-name">resp</tt> <tt class="py-op">+=</tt> <tt class="py-name">k</tt><tt class="py-op">+</tt><tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">v</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">                <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">resp</tt> </tt>
+</div><a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">     </tt>
+<a name="AxObject._appendString"></a><div id="AxObject._appendString-def"><a name="L196"></a><tt class="py-lineno">196</tt> <a class="py-toggle" href="#" id="AxObject._appendString-toggle" onclick="return toggle('AxObject._appendString');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#_appendString">_appendString</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file_str</tt><tt class="py-op">,</tt> <tt class="py-param">is_first</tt><tt class="py-op">,</tt> <tt class="py-param">string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject._appendString-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject._appendString-expanded"><a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">is_first</tt><tt class="py-op">:</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">            <tt class="py-name">file_str</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">            <tt class="py-name">file_str</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-string">"&amp;"</tt><tt class="py-op">+</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">             </tt>
+<a name="AxObject.getObjectDict"></a><div id="AxObject.getObjectDict-def"><a name="L202"></a><tt class="py-lineno">202</tt> <a class="py-toggle" href="#" id="AxObject.getObjectDict-toggle" onclick="return toggle('AxObject.getObjectDict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#getObjectDict">getObjectDict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.getObjectDict-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.getObjectDict-expanded"><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> </tt>
+</div><a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.getRequestPostDataXml"></a><div id="AxObject.getRequestPostDataXml-def"><a name="L205"></a><tt class="py-lineno">205</tt> <a class="py-toggle" href="#" id="AxObject.getRequestPostDataXml-toggle" onclick="return toggle('AxObject.getRequestPostDataXml');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#getRequestPostDataXml">getRequestPostDataXml</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.getRequestPostDataXml-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.getRequestPostDataXml-expanded"><a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">        <tt class="py-name">file_str</tt> <tt class="py-op">=</tt> <tt class="py-name">StringIO</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="base.AxObject.__xml_convrt__
+gslb.GslbDnsProxy.__xml_convrt__
+gslb.GslbPolicy.__xml_convrt__
+gslb.GslbServiceIP.__xml_convrt__
+gslb.GslbSite.__xml_convrt__
+gslb.GslbSnmpTemplate.__xml_convrt__
+gslb.GslbZone.__xml_convrt__
+network.Interface.__xml_convrt__
+network.VirtualInterface.__xml_convrt__
+slb.RealServer.__xml_convrt__
+slb.RealServerStats.__xml_convrt__
+slb.ServiceGroup.__xml_convrt__
+slb.ServiceGroupStats.__xml_convrt__
+slb.VirtualServer.__xml_convrt__
+slb.VirtualServerStats.__xml_convrt__
+slb_template.Template.__xml_convrt__
+slb_template.TemplateCache.__xml_convrt__
+slb_template.TemplateConnReuse.__xml_convrt__
+slb_template.TemplateCookiePersist.__xml_convrt__
+slb_template.TemplateDestinationIp.__xml_convrt__
+slb_template.TemplateDiameter.__xml_convrt__
+slb_template.TemplateDns.__xml_convrt__
+slb_template.TemplateHttp.__xml_convrt__
+slb_template.TemplatePbslb.__xml_convrt__
+slb_template.TemplateRtsp.__xml_convrt__
+slb_template.TemplateServer.__xml_convrt__
+slb_template.TemplateServerPort.__xml_convrt__
+slb_template.TemplateSip.__xml_convrt__
+slb_template.TemplateSmtp.__xml_convrt__
+slb_template.TemplateSourceIpPersist.__xml_convrt__
+slb_template.TemplateSslPersist.__xml_convrt__
+slb_template.TemplateTcp.__xml_convrt__
+slb_template.TemplateTcpProxy.__xml_convrt__
+slb_template.TemplateUdp.__xml_convrt__
+slb_template.TemplateVipPort.__xml_convrt__
+slb_template.TemplateVirtualServer.__xml_convrt__
+system.SystemNtp.__xml_convrt__" class="py-name" href="#" onclick="return doclink('link-55', '__xml_convrt__', 'link-42');">__xml_convrt__</a></tt><tt class="py-op">.</tt><tt class="py-name">has_key</tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">                <tt class="py-comment"># a list value, v</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method base.AxObject._appendString()=base.AxObject-class.html#_appendString"><a title="base.AxObject._appendString" class="py-name" href="#" onclick="return doclink('link-56', '_appendString', 'link-56');">_appendString</a></tt><tt class="py-op">(</tt><tt class="py-name">file_str</tt><tt class="py-op">,</tt> <tt class="py-name">is_first</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Method base.AxObject._generateListInUrl()=base.AxObject-class.html#_generateListInUrl"><a title="base.AxObject._generateListInUrl" class="py-name" href="#" onclick="return doclink('link-57', '_generateListInUrl', 'link-57');">_generateListInUrl</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="base.AxObject.__xml_convrt__
+gslb.GslbDnsProxy.__xml_convrt__
+gslb.GslbPolicy.__xml_convrt__
+gslb.GslbServiceIP.__xml_convrt__
+gslb.GslbSite.__xml_convrt__
+gslb.GslbSnmpTemplate.__xml_convrt__
+gslb.GslbZone.__xml_convrt__
+network.Interface.__xml_convrt__
+network.VirtualInterface.__xml_convrt__
+slb.RealServer.__xml_convrt__
+slb.RealServerStats.__xml_convrt__
+slb.ServiceGroup.__xml_convrt__
+slb.ServiceGroupStats.__xml_convrt__
+slb.VirtualServer.__xml_convrt__
+slb.VirtualServerStats.__xml_convrt__
+slb_template.Template.__xml_convrt__
+slb_template.TemplateCache.__xml_convrt__
+slb_template.TemplateConnReuse.__xml_convrt__
+slb_template.TemplateCookiePersist.__xml_convrt__
+slb_template.TemplateDestinationIp.__xml_convrt__
+slb_template.TemplateDiameter.__xml_convrt__
+slb_template.TemplateDns.__xml_convrt__
+slb_template.TemplateHttp.__xml_convrt__
+slb_template.TemplatePbslb.__xml_convrt__
+slb_template.TemplateRtsp.__xml_convrt__
+slb_template.TemplateServer.__xml_convrt__
+slb_template.TemplateServerPort.__xml_convrt__
+slb_template.TemplateSip.__xml_convrt__
+slb_template.TemplateSmtp.__xml_convrt__
+slb_template.TemplateSourceIpPersist.__xml_convrt__
+slb_template.TemplateSslPersist.__xml_convrt__
+slb_template.TemplateTcp.__xml_convrt__
+slb_template.TemplateTcpProxy.__xml_convrt__
+slb_template.TemplateUdp.__xml_convrt__
+slb_template.TemplateVipPort.__xml_convrt__
+slb_template.TemplateVirtualServer.__xml_convrt__
+system.SystemNtp.__xml_convrt__" class="py-name" href="#" onclick="return doclink('link-58', '__xml_convrt__', 'link-42');">__xml_convrt__</a></tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">v</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">                    <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt> <tt class="py-name">dict</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">                <tt class="py-comment">#  key_name: { k1: v1, k2: v2, ..., }</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="base.AxObject._appendString" class="py-name" href="#" onclick="return doclink('link-59', '_appendString', 'link-56');">_appendString</a></tt><tt class="py-op">(</tt><tt class="py-name">file_str</tt><tt class="py-op">,</tt> <tt class="py-name">is_first</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="base.AxObject._generateDictInUrl" class="py-name" href="#" onclick="return doclink('link-60', '_generateDictInUrl', 'link-53');">_generateDictInUrl</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">v</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">                    <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">int</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">                <tt class="py-comment">#  key_name: value</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="base.AxObject._appendString" class="py-name" href="#" onclick="return doclink('link-61', '_appendString', 'link-56');">_appendString</a></tt><tt class="py-op">(</tt><tt class="py-name">file_str</tt><tt class="py-op">,</tt> <tt class="py-name">is_first</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">+</tt><tt class="py-string">"="</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">                <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">                <tt class="py-comment">#  key_name: value</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="base.AxObject._appendString" class="py-name" href="#" onclick="return doclink('link-62', '_appendString', 'link-56');">_appendString</a></tt><tt class="py-op">(</tt><tt class="py-name">file_str</tt><tt class="py-op">,</tt> <tt class="py-name">is_first</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">+</tt><tt class="py-string">"="</tt><tt class="py-op">+</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">                <tt class="py-name">is_first</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">file_str</tt><tt class="py-op">.</tt><tt class="py-name">getvalue</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">file_str</tt><tt class="py-op">.</tt><tt class="py-name">getvalue</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">     </tt>
+<a name="AxObject.dump"></a><div id="AxObject.dump-def"><a name="L230"></a><tt class="py-lineno">230</tt> <a class="py-toggle" href="#" id="AxObject.dump-toggle" onclick="return toggle('AxObject.dump');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#dump">dump</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.dump-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.dump-expanded"><a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt class="py-docstring">            Debug purpose to print out the AX object internal data.</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">         </tt>
+<a name="AxObject.getInfo"></a><div id="AxObject.getInfo-def"><a name="L236"></a><tt class="py-lineno">236</tt> <a class="py-toggle" href="#" id="AxObject.getInfo-toggle" onclick="return toggle('AxObject.getInfo');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="base.AxObject-class.html#getInfo">getInfo</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AxObject.getInfo-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AxObject.getInfo-expanded"><a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-docstring">            Returns object information as a dictionary.</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-docstring">            Should be overridden.</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+</div></div><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:20 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gslb.GslbPolicy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="gslb-module.html">Module&nbsp;gslb</a> ::
+        Class&nbsp;GslbPolicy
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="gslb.GslbPolicy-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GslbPolicy</h1><p class="nomargin-top"><span class="codelink"><a href="gslb-pysrc.html#GslbPolicy">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   object --+    
+            |    
+<a href="base.AxObject-class.html">base.AxObject</a> --+
+                |
+               <strong class="uidshort">GslbPolicy</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+Implementation of the aXAPI gslb.policy.* method to 
+manage the GSLB policy configuration as getAll/create/delete/update 
+
+Usage:
+    # DNS proxy with parameters:
+    # name                        (required) GSLB DNS proxy name
+    # name         GSLB policy name
+    # metric       tag for the metric list
+    #     session_capacity         tag for session capacity
+    #         enabled              the status of session capacity
+    #         threshold            threshold of session capacity
+    #     active_rrt
+    #         enabled              the status of active RRT
+    #         samples              the number of samples
+    #         difference           difference
+    #         tolerance            tolerance
+    #         time_out             time out
+    #         skip                 skip
+    #         single_shot          single shot
+    #     connection_load
+    #         enabled              the status of connection load
+    #         limit                connection limit
+    #         samples_num          sample number
+    #         samples_interval     sample interval
+    #     num_session              number       session
+    #         enabled              status of number session
+    #         tolerance            tolerance
+    #     geo_graphic              tag of geographic
+    #         enabled              status of geographic option
+    #     ordered_ip               tag if ordered IP option
+    #         enabled              status of ordered IP option
+    #     weighted_site            tag of weighted site option
+    #         enabled              status of weighted site option
+    #     active_servers           tag of active servers
+    #         enabled              status of active servers
+    #     weighted_ip              tag of weighted IP option
+    #         enabled              status of weighted IP option
+    #     bandwidth_cost           tag of bandwidth option
+    #         enabled              status of bandwidth
+    #     health_check             tag of health check option
+    #         enabled              status of health check option
+    #     admin_perference         tag of administrator preference
+    #         enabled              status of administrator preference option
+    #     least_response           tag of least connection option
+    #         enabled              status of least response option
+    #     round_robin              tag of round robin option
+    #         enabled              status of round robin
+    # dns_options                  tag of DNS options
+    #     action                   action
+    #     active_only              action only
+    #     best_only                best only
+    #     dns_cache                tag of DNS cache
+    #         enabled              status of DNS cache
+    #         dns_cache_aging_time DNS cache aging time
+    #     cname_detect             CName detected
+    #     external_ip              external IP
+    #     ip_replace               IP replace
+    #     geo_location_alias       geographic location alias
+    #     geo_location_action      geographic location action
+    #     geo_location_policy      geographic location policy
+    #     mx_additional            MX additional
+    #     server_mode              tag of server mode
+    #         enabled              status of server mode
+    #         authoritative_mode   authoritative mode
+    #         full_server_list     full server list
+    #         server_mx            server MX record
+    #         server_mx_additional server MX additional record
+    #         server_ns            server NS record
+    #         server_auto_ns       server auto NS
+    #         server_ptr           server PTR
+    #         server_auto_ptr      server auto PTR
+    #     sticky                   tag of sticky
+    #         enabled              status of sticky
+    #         sticky_dns_client_ip_mask_len     sticky DNS client IP mask length
+    #     ttl                      tag of TTL
+    #         enabled              status of TTL
+    #         ttl_time_live        TTL time live
+    # geo_location                 tag of geographic location
+    #     geo_location_match_first     geographic location match first
+    #     geo_location_overlap         geographic location overlap
+    
+    # Example: 
+    # create a GSLB policy configuration as:  
+    !
+    gslb policy policy01
+       dns action
+       dns ttl 0
+       capacity threshold 80
+       num-session tolerance 0
+       active-rtt tolerance 20
+       active-rtt difference 5
+       active-rtt samples 8
+       active-rtt timeout 2
+       active-rtt skip 5
+       metric-order health-check geographic weighted-ip active-servers weighted-site capacity active-rtt num-session connection-load admin-preference bw-cost least-response ordered-ip
+    !
+    #  
+    policy1 = GslbPolicy(name=&quot;policy01&quot;)
+    policy1.metric[&quot;session_capacity&quot;] = {&quot;enabled&quot;: 0, &quot;threshold&quot;: 80}
+    policy1.metric[&quot;active_rrt&quot;] = {&quot;enabled&quot;: 0, &quot;samples&quot;: 8, &quot;difference&quot;: 5, &quot;tolerance&quot;: 20, &quot;timeout&quot;: 2, &quot;skip&quot;: 5, &quot;single_short&quot;: 1}
+    policy1.metric[&quot;connection_load&quot;] = {&quot;enabled&quot;: 0, &quot;limit&quot;: 0, &quot;samples_num&quot;: 5, &quot;samples_interval&quot;: 5}
+    policy1.metric[&quot;num_sessions&quot;] = {&quot;enabled&quot;: 0, &quot;tolerance&quot;: 0}
+    policy1.metric[&quot;geo_graphic&quot;] = {&quot;enabled&quot;: 1}
+    policy1.metric[&quot;orderid_ip&quot;] = {&quot;enabled&quot;: 0}
+    policy1.metric[&quot;weighted_site&quot;] = {&quot;enabled&quot;: 0}
+    policy1.dns_options[&quot;dns_cache&quot;] = {&quot;enabled&quot;: 1}
+    policy1.dns_options[&quot;action&quot;] = 1
+    policy1.dns_options[&quot;active_only&quot;] = 0
+    policy1.dns_options[&quot;best_only&quot;] = 0
+    policy1.dns_options[&quot;dns_cache&quot;] = {&quot;enabled&quot;: 0, &quot;dns_cache_aging_time&quot;: 0}
+    policy1.dns_options[&quot;cname_detect&quot;] = 1
+    policy1.dns_options[&quot;external_ip&quot;] = 1
+    policy1.dns_options[&quot;ip_replace&quot;] = 0
+    policy1.dns_options[&quot;geo_location_alias&quot;] = 0
+    policy1.dns_options[&quot;geo_location_action&quot;] = 0
+    policy1.dns_options[&quot;geo_location_policy&quot;] = 0
+    policy1.dns_options[&quot;mx_additional&quot;] = 0
+    policy1.dns_options[&quot;server_mode&quot;] = {&quot;enabled&quot;:0, &quot;authoritative_mode&quot;:0}
+    policy1.dns_options[&quot;ttl&quot;] = {&quot;enabled&quot;:1, &quot;ttl_time_live&quot;:0}
+    policy1.create()
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="gslb.GslbPolicy-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**params</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create"></a><span class="summary-sig-name">create</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: gslb.policy.create Create the GSLB policy.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.create">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: gslb.policy.delete Delete the GSLB policy.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.delete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="update"></a><span class="summary-sig-name">update</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: gslb.policy.update Update the GSLB policy.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.update">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__getattr__">__getattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__repr__">__repr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setattr__">__setattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setitem__">__setitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__str__">__str__</a></code>,
+      <code><a href="base.AxObject-class.html#dump">dump</a></code>,
+      <code><a href="base.AxObject-class.html#get">get</a></code>,
+      <code><a href="base.AxObject-class.html#getInfo">getInfo</a></code>,
+      <code><a href="base.AxObject-class.html#getObjectDict">getObjectDict</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataJson">getRequestPostDataJson</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataXml">getRequestPostDataXml</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b> (private):
+      <code><a href="base.AxObject-class.html#_appendString" onclick="show_private();">_appendString</a></code>,
+      <code><a href="base.AxObject-class.html#_generateDictInUrl" onclick="show_private();">_generateDictInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_generateListInUrl" onclick="show_private();">_generateListInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_set_properties" onclick="show_private();">_set_properties</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getAll"></a><span class="summary-sig-name">getAll</span>()</span><br />
+      method : gslb.policy.getAll Returns a list of GSLB policy in 
+      GslbPolicy instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.getAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="searchByName"></a><span class="summary-sig-name">searchByName</span>(<span class="summary-sig-arg">name</span>)</span><br />
+      method: gslb.policy.search Search the GSLB policy by given name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.searchByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__display__"></a><span class="summary-name">__display__</span> = <code title="['name']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__obj_name__"></a><span class="summary-name">__obj_name__</span> = <code title="'policy'"><code class="variable-quote">'</code><code class="variable-string">policy</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__xml_convrt__"></a><span class="summary-name">__xml_convrt__</span> = <code title="{'policy_list': 'policy'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">policy_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">policy</code><code class="variable-quote">'</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__obj_readonly__">__obj_readonly__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**params</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="gslb-pysrc.html#GslbPolicy.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:20 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

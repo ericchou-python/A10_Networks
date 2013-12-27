@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>system</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;system
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="system-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="system-module.html">Module system</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- encoding: utf8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">    System module:  aXAPI system management implementation.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">    Author : Richard Zhang, A10 Networks (c)</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">    email  : rzhang@a10networks.com</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    Date   : 03/07/2012</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module method_call=method_call-module.html"><a title="method_call" class="py-name" href="#" onclick="return doclink('link-0', 'method_call', 'link-0');">method_call</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt>  <tt id="link-1" class="py-name" targets="Module base=base-module.html"><a title="base" class="py-name" href="#" onclick="return doclink('link-1', 'base', 'link-1');">base</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class base.AxObject=base.AxObject-class.html"><a title="base.AxObject" class="py-name" href="#" onclick="return doclink('link-2', 'AxObject', 'link-2');">AxObject</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class base.AxAPIError=base.AxAPIError-class.html"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-3', 'AxAPIError', 'link-3');">AxAPIError</a></tt> </tt>
+<a name="SystemNtp"></a><div id="SystemNtp-def"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="SystemNtp-toggle" onclick="return toggle('SystemNtp');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="system.SystemNtp-class.html">SystemNtp</a><tt class="py-op">(</tt><tt class="py-base-class">AxObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SystemNtp-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SystemNtp-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        Implementation of the aXAPI system.ntp.* method to </tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">        set up the NTP </tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        Usage:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">            # create the NTP server at 2.2.2.2 at disabled status</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">            ntp1 = SystemNtp(server="2.2.2.2", status=STATUS_DISABLED)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">            ntp1.add()</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">            # enable the NTP server:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">            ntp1.status = STATUS_ENABLED.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">            ntp1.update()</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">            # get all NTP configuration</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">            ntp_list = SystemNtp.getAll()</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">            for aNtp in ntp_list:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">                # use aNtp here</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">                ...</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">     </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable base.AxObject.__display__=base.AxObject-class.html#__display__,Variable gslb.GslbDnsProxy.__display__=gslb.GslbDnsProxy-class.html#__display__,Variable gslb.GslbPolicy.__display__=gslb.GslbPolicy-class.html#__display__,Variable gslb.GslbServiceIP.__display__=gslb.GslbServiceIP-class.html#__display__,Variable gslb.GslbSite.__display__=gslb.GslbSite-class.html#__display__,Variable gslb.GslbSnmpTemplate.__display__=gslb.GslbSnmpTemplate-class.html#__display__,Variable gslb.GslbZone.__display__=gslb.GslbZone-class.html#__display__,Variable method_call.AxApiContext.__display__=method_call.AxApiContext-class.html#__display__,Variable network.Interface.__display__=network.Interface-class.html#__display__,Variable network.VirtualInterface.__display__=network.VirtualInterface-class.html#__display__,Variable slb.RealServer.__display__=slb.RealServer-class.html#__display__,Variable slb.RealServerStats.__display__=slb.RealServerStats-class.html#__display__,Variable slb.ServiceGroup.__display__=slb.ServiceGroup-class.html#__display__,Variable slb.ServiceGroupStats.__display__=slb.ServiceGroupStats-class.html#__display__,Variable slb.VirtualServer.__display__=slb.VirtualServer-class.html#__display__,Variable slb.VirtualServerStats.__display__=slb.VirtualServerStats-class.html#__display__,Variable slb_template.Template.__display__=slb_template.Template-class.html#__display__,Variable slb_template.TemplateCache.__display__=slb_template.TemplateCache-class.html#__display__,Variable slb_template.TemplateConnReuse.__display__=slb_template.TemplateConnReuse-class.html#__display__,Variable slb_template.TemplateCookiePersist.__display__=slb_template.TemplateCookiePersist-class.html#__display__,Variable slb_template.TemplateDestinationIp.__display__=slb_template.TemplateDestinationIp-class.html#__display__,Variable slb_template.TemplateDiameter.__display__=slb_template.TemplateDiameter-class.html#__display__,Variable slb_template.TemplateDns.__display__=slb_template.TemplateDns-class.html#__display__,Variable slb_template.TemplateHttp.__display__=slb_template.TemplateHttp-class.html#__display__,Variable slb_template.TemplatePbslb.__display__=slb_template.TemplatePbslb-class.html#__display__,Variable slb_template.TemplateRtsp.__display__=slb_template.TemplateRtsp-class.html#__display__,Variable slb_template.TemplateServer.__display__=slb_template.TemplateServer-class.html#__display__,Variable slb_template.TemplateServerPort.__display__=slb_template.TemplateServerPort-class.html#__display__,Variable slb_template.TemplateSip.__display__=slb_template.TemplateSip-class.html#__display__,Variable slb_template.TemplateSmtp.__display__=slb_template.TemplateSmtp-class.html#__display__,Variable slb_template.TemplateSourceIpPersist.__display__=slb_template.TemplateSourceIpPersist-class.html#__display__,Variable slb_template.TemplateSslPersist.__display__=slb_template.TemplateSslPersist-class.html#__display__,Variable slb_template.TemplateTcp.__display__=slb_template.TemplateTcp-class.html#__display__,Variable slb_template.TemplateTcpProxy.__display__=slb_template.TemplateTcpProxy-class.html#__display__,Variable slb_template.TemplateUdp.__display__=slb_template.TemplateUdp-class.html#__display__,Variable slb_template.TemplateVipPort.__display__=slb_template.TemplateVipPort-class.html#__display__,Variable slb_template.TemplateVirtualServer.__display__=slb_template.TemplateVirtualServer-class.html#__display__,Variable system.SystemNtp.__display__=system.SystemNtp-class.html#__display__"><a title="base.AxObject.__display__
+gslb.GslbDnsProxy.__display__
+gslb.GslbPolicy.__display__
+gslb.GslbServiceIP.__display__
+gslb.GslbSite.__display__
+gslb.GslbSnmpTemplate.__display__
+gslb.GslbZone.__display__
+method_call.AxApiContext.__display__
+network.Interface.__display__
+network.VirtualInterface.__display__
+slb.RealServer.__display__
+slb.RealServerStats.__display__
+slb.ServiceGroup.__display__
+slb.ServiceGroupStats.__display__
+slb.VirtualServer.__display__
+slb.VirtualServerStats.__display__
+slb_template.Template.__display__
+slb_template.TemplateCache.__display__
+slb_template.TemplateConnReuse.__display__
+slb_template.TemplateCookiePersist.__display__
+slb_template.TemplateDestinationIp.__display__
+slb_template.TemplateDiameter.__display__
+slb_template.TemplateDns.__display__
+slb_template.TemplateHttp.__display__
+slb_template.TemplatePbslb.__display__
+slb_template.TemplateRtsp.__display__
+slb_template.TemplateServer.__display__
+slb_template.TemplateServerPort.__display__
+slb_template.TemplateSip.__display__
+slb_template.TemplateSmtp.__display__
+slb_template.TemplateSourceIpPersist.__display__
+slb_template.TemplateSslPersist.__display__
+slb_template.TemplateTcp.__display__
+slb_template.TemplateTcpProxy.__display__
+slb_template.TemplateUdp.__display__
+slb_template.TemplateVipPort.__display__
+slb_template.TemplateVirtualServer.__display__
+system.SystemNtp.__display__" class="py-name" href="#" onclick="return doclink('link-4', '__display__', 'link-4');">__display__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"server"</tt><tt class="py-op">,</tt> <tt class="py-string">"status"</tt><tt class="py-op">]</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable base.AxObject.__obj_name__=base.AxObject-class.html#__obj_name__,Variable gslb.GslbDnsProxy.__obj_name__=gslb.GslbDnsProxy-class.html#__obj_name__,Variable gslb.GslbPolicy.__obj_name__=gslb.GslbPolicy-class.html#__obj_name__,Variable gslb.GslbServiceIP.__obj_name__=gslb.GslbServiceIP-class.html#__obj_name__,Variable gslb.GslbSite.__obj_name__=gslb.GslbSite-class.html#__obj_name__,Variable gslb.GslbSnmpTemplate.__obj_name__=gslb.GslbSnmpTemplate-class.html#__obj_name__,Variable gslb.GslbZone.__obj_name__=gslb.GslbZone-class.html#__obj_name__,Variable network.Interface.__obj_name__=network.Interface-class.html#__obj_name__,Variable network.VirtualInterface.__obj_name__=network.VirtualInterface-class.html#__obj_name__,Variable slb.RealServer.__obj_name__=slb.RealServer-class.html#__obj_name__,Variable slb.RealServerStats.__obj_name__=slb.RealServerStats-class.html#__obj_name__,Variable slb.ServiceGroup.__obj_name__=slb.ServiceGroup-class.html#__obj_name__,Variable slb.ServiceGroupStats.__obj_name__=slb.ServiceGroupStats-class.html#__obj_name__,Variable slb.VirtualServer.__obj_name__=slb.VirtualServer-class.html#__obj_name__,Variable slb.VirtualServerStats.__obj_name__=slb.VirtualServerStats-class.html#__obj_name__,Variable slb_template.Template.__obj_name__=slb_template.Template-class.html#__obj_name__,Variable slb_template.TemplateCache.__obj_name__=slb_template.TemplateCache-class.html#__obj_name__,Variable slb_template.TemplateConnReuse.__obj_name__=slb_template.TemplateConnReuse-class.html#__obj_name__,Variable slb_template.TemplateCookiePersist.__obj_name__=slb_template.TemplateCookiePersist-class.html#__obj_name__,Variable slb_template.TemplateDestinationIp.__obj_name__=slb_template.TemplateDestinationIp-class.html#__obj_name__,Variable slb_template.TemplateDiameter.__obj_name__=slb_template.TemplateDiameter-class.html#__obj_name__,Variable slb_template.TemplateDns.__obj_name__=slb_template.TemplateDns-class.html#__obj_name__,Variable slb_template.TemplateHttp.__obj_name__=slb_template.TemplateHttp-class.html#__obj_name__,Variable slb_template.TemplatePbslb.__obj_name__=slb_template.TemplatePbslb-class.html#__obj_name__,Variable slb_template.TemplateRtsp.__obj_name__=slb_template.TemplateRtsp-class.html#__obj_name__,Variable slb_template.TemplateServer.__obj_name__=slb_template.TemplateServer-class.html#__obj_name__,Variable slb_template.TemplateServerPort.__obj_name__=slb_template.TemplateServerPort-class.html#__obj_name__,Variable slb_template.TemplateSip.__obj_name__=slb_template.TemplateSip-class.html#__obj_name__,Variable slb_template.TemplateSmtp.__obj_name__=slb_template.TemplateSmtp-class.html#__obj_name__,Variable slb_template.TemplateSourceIpPersist.__obj_name__=slb_template.TemplateSourceIpPersist-class.html#__obj_name__,Variable slb_template.TemplateSslPersist.__obj_name__=slb_template.TemplateSslPersist-class.html#__obj_name__,Variable slb_template.TemplateTcp.__obj_name__=slb_template.TemplateTcp-class.html#__obj_name__,Variable slb_template.TemplateTcpProxy.__obj_name__=slb_template.TemplateTcpProxy-class.html#__obj_name__,Variable slb_template.TemplateUdp.__obj_name__=slb_template.TemplateUdp-class.html#__obj_name__,Variable slb_template.TemplateVipPort.__obj_name__=slb_template.TemplateVipPort-class.html#__obj_name__,Variable slb_template.TemplateVirtualServer.__obj_name__=slb_template.TemplateVirtualServer-class.html#__obj_name__,Variable system.SystemNtp.__obj_name__=system.SystemNtp-class.html#__obj_name__"><a title="base.AxObject.__obj_name__
+gslb.GslbDnsProxy.__obj_name__
+gslb.GslbPolicy.__obj_name__
+gslb.GslbServiceIP.__obj_name__
+gslb.GslbSite.__obj_name__
+gslb.GslbSnmpTemplate.__obj_name__
+gslb.GslbZone.__obj_name__
+network.Interface.__obj_name__
+network.VirtualInterface.__obj_name__
+slb.RealServer.__obj_name__
+slb.RealServerStats.__obj_name__
+slb.ServiceGroup.__obj_name__
+slb.ServiceGroupStats.__obj_name__
+slb.VirtualServer.__obj_name__
+slb.VirtualServerStats.__obj_name__
+slb_template.Template.__obj_name__
+slb_template.TemplateCache.__obj_name__
+slb_template.TemplateConnReuse.__obj_name__
+slb_template.TemplateCookiePersist.__obj_name__
+slb_template.TemplateDestinationIp.__obj_name__
+slb_template.TemplateDiameter.__obj_name__
+slb_template.TemplateDns.__obj_name__
+slb_template.TemplateHttp.__obj_name__
+slb_template.TemplatePbslb.__obj_name__
+slb_template.TemplateRtsp.__obj_name__
+slb_template.TemplateServer.__obj_name__
+slb_template.TemplateServerPort.__obj_name__
+slb_template.TemplateSip.__obj_name__
+slb_template.TemplateSmtp.__obj_name__
+slb_template.TemplateSourceIpPersist.__obj_name__
+slb_template.TemplateSslPersist.__obj_name__
+slb_template.TemplateTcp.__obj_name__
+slb_template.TemplateTcpProxy.__obj_name__
+slb_template.TemplateUdp.__obj_name__
+slb_template.TemplateVipPort.__obj_name__
+slb_template.TemplateVirtualServer.__obj_name__
+system.SystemNtp.__obj_name__" class="py-name" href="#" onclick="return doclink('link-5', '__obj_name__', 'link-5');">__obj_name__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'ntp'</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable base.AxObject.__xml_convrt__=base.AxObject-class.html#__xml_convrt__,Variable gslb.GslbDnsProxy.__xml_convrt__=gslb.GslbDnsProxy-class.html#__xml_convrt__,Variable gslb.GslbPolicy.__xml_convrt__=gslb.GslbPolicy-class.html#__xml_convrt__,Variable gslb.GslbServiceIP.__xml_convrt__=gslb.GslbServiceIP-class.html#__xml_convrt__,Variable gslb.GslbSite.__xml_convrt__=gslb.GslbSite-class.html#__xml_convrt__,Variable gslb.GslbSnmpTemplate.__xml_convrt__=gslb.GslbSnmpTemplate-class.html#__xml_convrt__,Variable gslb.GslbZone.__xml_convrt__=gslb.GslbZone-class.html#__xml_convrt__,Variable network.Interface.__xml_convrt__=network.Interface-class.html#__xml_convrt__,Variable network.VirtualInterface.__xml_convrt__=network.VirtualInterface-class.html#__xml_convrt__,Variable slb.RealServer.__xml_convrt__=slb.RealServer-class.html#__xml_convrt__,Variable slb.RealServerStats.__xml_convrt__=slb.RealServerStats-class.html#__xml_convrt__,Variable slb.ServiceGroup.__xml_convrt__=slb.ServiceGroup-class.html#__xml_convrt__,Variable slb.ServiceGroupStats.__xml_convrt__=slb.ServiceGroupStats-class.html#__xml_convrt__,Variable slb.VirtualServer.__xml_convrt__=slb.VirtualServer-class.html#__xml_convrt__,Variable slb.VirtualServerStats.__xml_convrt__=slb.VirtualServerStats-class.html#__xml_convrt__,Variable slb_template.Template.__xml_convrt__=slb_template.Template-class.html#__xml_convrt__,Variable slb_template.TemplateCache.__xml_convrt__=slb_template.TemplateCache-class.html#__xml_convrt__,Variable slb_template.TemplateConnReuse.__xml_convrt__=slb_template.TemplateConnReuse-class.html#__xml_convrt__,Variable slb_template.TemplateCookiePersist.__xml_convrt__=slb_template.TemplateCookiePersist-class.html#__xml_convrt__,Variable slb_template.TemplateDestinationIp.__xml_convrt__=slb_template.TemplateDestinationIp-class.html#__xml_convrt__,Variable slb_template.TemplateDiameter.__xml_convrt__=slb_template.TemplateDiameter-class.html#__xml_convrt__,Variable slb_template.TemplateDns.__xml_convrt__=slb_template.TemplateDns-class.html#__xml_convrt__,Variable slb_template.TemplateHttp.__xml_convrt__=slb_template.TemplateHttp-class.html#__xml_convrt__,Variable slb_template.TemplatePbslb.__xml_convrt__=slb_template.TemplatePbslb-class.html#__xml_convrt__,Variable slb_template.TemplateRtsp.__xml_convrt__=slb_template.TemplateRtsp-class.html#__xml_convrt__,Variable slb_template.TemplateServer.__xml_convrt__=slb_template.TemplateServer-class.html#__xml_convrt__,Variable slb_template.TemplateServerPort.__xml_convrt__=slb_template.TemplateServerPort-class.html#__xml_convrt__,Variable slb_template.TemplateSip.__xml_convrt__=slb_template.TemplateSip-class.html#__xml_convrt__,Variable slb_template.TemplateSmtp.__xml_convrt__=slb_template.TemplateSmtp-class.html#__xml_convrt__,Variable slb_template.TemplateSourceIpPersist.__xml_convrt__=slb_template.TemplateSourceIpPersist-class.html#__xml_convrt__,Variable slb_template.TemplateSslPersist.__xml_convrt__=slb_template.TemplateSslPersist-class.html#__xml_convrt__,Variable slb_template.TemplateTcp.__xml_convrt__=slb_template.TemplateTcp-class.html#__xml_convrt__,Variable slb_template.TemplateTcpProxy.__xml_convrt__=slb_template.TemplateTcpProxy-class.html#__xml_convrt__,Variable slb_template.TemplateUdp.__xml_convrt__=slb_template.TemplateUdp-class.html#__xml_convrt__,Variable slb_template.TemplateVipPort.__xml_convrt__=slb_template.TemplateVipPort-class.html#__xml_convrt__,Variable slb_template.TemplateVirtualServer.__xml_convrt__=slb_template.TemplateVirtualServer-class.html#__xml_convrt__,Variable system.SystemNtp.__xml_convrt__=system.SystemNtp-class.html#__xml_convrt__"><a title="base.AxObject.__xml_convrt__
+gslb.GslbDnsProxy.__xml_convrt__
+gslb.GslbPolicy.__xml_convrt__
+gslb.GslbServiceIP.__xml_convrt__
+gslb.GslbSite.__xml_convrt__
+gslb.GslbSnmpTemplate.__xml_convrt__
+gslb.GslbZone.__xml_convrt__
+network.Interface.__xml_convrt__
+network.VirtualInterface.__xml_convrt__
+slb.RealServer.__xml_convrt__
+slb.RealServerStats.__xml_convrt__
+slb.ServiceGroup.__xml_convrt__
+slb.ServiceGroupStats.__xml_convrt__
+slb.VirtualServer.__xml_convrt__
+slb.VirtualServerStats.__xml_convrt__
+slb_template.Template.__xml_convrt__
+slb_template.TemplateCache.__xml_convrt__
+slb_template.TemplateConnReuse.__xml_convrt__
+slb_template.TemplateCookiePersist.__xml_convrt__
+slb_template.TemplateDestinationIp.__xml_convrt__
+slb_template.TemplateDiameter.__xml_convrt__
+slb_template.TemplateDns.__xml_convrt__
+slb_template.TemplateHttp.__xml_convrt__
+slb_template.TemplatePbslb.__xml_convrt__
+slb_template.TemplateRtsp.__xml_convrt__
+slb_template.TemplateServer.__xml_convrt__
+slb_template.TemplateServerPort.__xml_convrt__
+slb_template.TemplateSip.__xml_convrt__
+slb_template.TemplateSmtp.__xml_convrt__
+slb_template.TemplateSourceIpPersist.__xml_convrt__
+slb_template.TemplateSslPersist.__xml_convrt__
+slb_template.TemplateTcp.__xml_convrt__
+slb_template.TemplateTcpProxy.__xml_convrt__
+slb_template.TemplateUdp.__xml_convrt__
+slb_template.TemplateVipPort.__xml_convrt__
+slb_template.TemplateVirtualServer.__xml_convrt__
+system.SystemNtp.__xml_convrt__" class="py-name" href="#" onclick="return doclink('link-6', '__xml_convrt__', 'link-6');">__xml_convrt__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"ntp_list"</tt><tt class="py-op">:</tt> <tt class="py-string">"ntp"</tt><tt class="py-op">}</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="SystemNtp.getAll"></a><div id="SystemNtp.getAll-def"><a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="SystemNtp.getAll-toggle" onclick="return toggle('SystemNtp.getAll');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="system.SystemNtp-class.html#getAll">getAll</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SystemNtp.getAll-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SystemNtp.getAll-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-docstring">""" method : system.ntp.get</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-docstring">            Returns a list of NTP configuration in SystemNtp instance.</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">            <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="method_call" class="py-name" href="#" onclick="return doclink('link-7', 'method_call', 'link-0');">method_call</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function method_call.call_api()=method_call-module.html#call_api"><a title="method_call.call_api" class="py-name" href="#" onclick="return doclink('link-8', 'call_api', 'link-8');">call_api</a></tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Class system.SystemNtp=system.SystemNtp-class.html"><a title="system.SystemNtp" class="py-name" href="#" onclick="return doclink('link-9', 'SystemNtp', 'link-9');">SystemNtp</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">method</tt> <tt class="py-op">=</tt> <tt class="py-string">"system.ntp.get"</tt><tt class="py-op">,</tt> <tt class="py-name">format</tt> <tt class="py-op">=</tt> <tt class="py-string">"url"</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-name">smtp_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">res</tt><tt class="py-op">[</tt><tt class="py-string">"smtp_template_list"</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                <tt class="py-name">smtp_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt> <tt id="link-10" class="py-name"><a title="system.SystemNtp" class="py-name" href="#" onclick="return doclink('link-10', 'SystemNtp', 'link-9');">SystemNtp</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">smtp_list</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-11" class="py-name"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-11', 'AxAPIError', 'link-3');">AxAPIError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">     </tt>
+<a name="SystemNtp.add"></a><div id="SystemNtp.add-def"><a name="L51"></a><tt class="py-lineno">51</tt> <a class="py-toggle" href="#" id="SystemNtp.add-toggle" onclick="return toggle('SystemNtp.add');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="system.SystemNtp-class.html#add">add</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SystemNtp.add-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SystemNtp.add-expanded"><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-docstring">""" method: system.ntp.add</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-docstring">            Create the NTP entry.</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-name">alist</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-name">alist</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method base.AxObject.getObjectDict()=base.AxObject-class.html#getObjectDict"><a title="base.AxObject.getObjectDict" class="py-name" href="#" onclick="return doclink('link-12', 'getObjectDict', 'link-12');">getObjectDict</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-name">ntp</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="system.SystemNtp" class="py-name" href="#" onclick="return doclink('link-13', 'SystemNtp', 'link-9');">SystemNtp</a></tt><tt class="py-op">(</tt><tt class="py-name">ntp_list</tt> <tt class="py-op">=</tt> <tt class="py-name">alist</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt id="link-14" class="py-name"><a title="method_call" class="py-name" href="#" onclick="return doclink('link-14', 'method_call', 'link-0');">method_call</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="method_call.call_api" class="py-name" href="#" onclick="return doclink('link-15', 'call_api', 'link-8');">call_api</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">method</tt> <tt class="py-op">=</tt> <tt class="py-string">"system.ntp.add"</tt><tt class="py-op">,</tt> <tt class="py-name">format</tt> <tt class="py-op">=</tt> <tt class="py-string">"url"</tt><tt class="py-op">,</tt> <tt class="py-name">post_data</tt> <tt class="py-op">=</tt> <tt class="py-name">ntp</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method base.AxObject.getRequestPostDataXml()=base.AxObject-class.html#getRequestPostDataXml"><a title="base.AxObject.getRequestPostDataXml" class="py-name" href="#" onclick="return doclink('link-16', 'getRequestPostDataXml', 'link-16');">getRequestPostDataXml</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">0</tt>  </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-17" class="py-name"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-17', 'AxAPIError', 'link-3');">AxAPIError</a></tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">code</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">         </tt>
+<a name="SystemNtp.delete"></a><div id="SystemNtp.delete-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="SystemNtp.delete-toggle" onclick="return toggle('SystemNtp.delete');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="system.SystemNtp-class.html#delete">delete</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SystemNtp.delete-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SystemNtp.delete-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-docstring">""" method: system.ntp.delete</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-docstring">            Delete the NTP entry.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">            <tt class="py-name">alist</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-name">alist</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="base.AxObject.getObjectDict" class="py-name" href="#" onclick="return doclink('link-18', 'getObjectDict', 'link-12');">getObjectDict</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-name">ntp</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="system.SystemNtp" class="py-name" href="#" onclick="return doclink('link-19', 'SystemNtp', 'link-9');">SystemNtp</a></tt><tt class="py-op">(</tt><tt class="py-name">ntp_list</tt> <tt class="py-op">=</tt> <tt class="py-name">alist</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">            <tt id="link-20" class="py-name"><a title="method_call" class="py-name" href="#" onclick="return doclink('link-20', 'method_call', 'link-0');">method_call</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="method_call.call_api" class="py-name" href="#" onclick="return doclink('link-21', 'call_api', 'link-8');">call_api</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">method</tt> <tt class="py-op">=</tt> <tt class="py-string">"system.ntp.delete"</tt><tt class="py-op">,</tt> <tt class="py-name">format</tt> <tt class="py-op">=</tt> <tt class="py-string">"url"</tt><tt class="py-op">,</tt> <tt class="py-name">post_data</tt> <tt class="py-op">=</tt> <tt class="py-name">ntp</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="base.AxObject.getRequestPostDataXml" class="py-name" href="#" onclick="return doclink('link-22', 'getRequestPostDataXml', 'link-16');">getRequestPostDataXml</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">0</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-23" class="py-name"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-23', 'AxAPIError', 'link-3');">AxAPIError</a></tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">code</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="SystemNtp.update"></a><div id="SystemNtp.update-def"><a name="L77"></a><tt class="py-lineno">77</tt> <a class="py-toggle" href="#" id="SystemNtp.update-toggle" onclick="return toggle('SystemNtp.update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="system.SystemNtp-class.html#update">update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SystemNtp.update-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SystemNtp.update-expanded"><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-docstring">""" method: system.ntp.update</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line"><tt class="py-docstring">            Update the NTP entry.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">            <tt class="py-name">alist</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">            <tt class="py-name">alist</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="base.AxObject.getObjectDict" class="py-name" href="#" onclick="return doclink('link-24', 'getObjectDict', 'link-12');">getObjectDict</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">            <tt class="py-name">ntp</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name"><a title="system.SystemNtp" class="py-name" href="#" onclick="return doclink('link-25', 'SystemNtp', 'link-9');">SystemNtp</a></tt><tt class="py-op">(</tt><tt class="py-name">ntp_list</tt> <tt class="py-op">=</tt> <tt class="py-name">alist</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">            <tt id="link-26" class="py-name"><a title="method_call" class="py-name" href="#" onclick="return doclink('link-26', 'method_call', 'link-0');">method_call</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="method_call.call_api" class="py-name" href="#" onclick="return doclink('link-27', 'call_api', 'link-8');">call_api</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">method</tt> <tt class="py-op">=</tt> <tt class="py-string">"system.ntp.update"</tt><tt class="py-op">,</tt> <tt class="py-name">format</tt> <tt class="py-op">=</tt> <tt class="py-string">"url"</tt><tt class="py-op">,</tt> <tt class="py-name">post_data</tt> <tt class="py-op">=</tt> <tt class="py-name">ntp</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="base.AxObject.getRequestPostDataXml" class="py-name" href="#" onclick="return doclink('link-28', 'getRequestPostDataXml', 'link-16');">getRequestPostDataXml</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">0</tt>  </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-29" class="py-name"><a title="base.AxAPIError" class="py-name" href="#" onclick="return doclink('link-29', 'AxAPIError', 'link-3');">AxAPIError</a></tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">code</tt> </tt>
+</div></div><a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:21 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

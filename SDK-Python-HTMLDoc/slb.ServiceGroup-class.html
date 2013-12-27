@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>slb.ServiceGroup</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="slb-module.html">Module&nbsp;slb</a> ::
+        Class&nbsp;ServiceGroup
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="slb.ServiceGroup-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ServiceGroup</h1><p class="nomargin-top"><span class="codelink"><a href="slb-pysrc.html#ServiceGroup">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   object --+    
+            |    
+<a href="base.AxObject-class.html">base.AxObject</a> --+
+                |
+               <strong class="uidshort">ServiceGroup</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+Implementation of the aXAPI slb.service_group.* method to 
+manage the SLB service groups as getAll/create/delete/update 
+
+Usage:
+    # Service group with parameters:
+    # name         (required) service group name.
+    # protocol     (required) service group type, either TCP(2) or UDP(3).
+    # lb_method     desired load-balancing algorithm on the service group with:
+    #     0    RoundRobin (default)
+    #     1    WeightedRoundRobin
+    #     2    LeastConnection
+    #     3    WeightedLeastConnection
+    #     4    LeastConnectionOnServicePort
+    #     5    WeightedLeastConnectionOnServicePort 
+    #     6    FastResponseTime
+    #     7    LeastRequest
+    #     8    StrictRoundRobin
+    #     9    StateLessSourceIPHash
+    #     10    StateLessSourceIPHashOnly
+    #     11    StateLessDestinationIPHash
+    #     12    StateLessSourceDestinationIPHash
+    #     13    StateLessPerPacketRoundRobin
+    # health_monitor      health monitor method used at the service group member.
+    # min_active_member   min active members.
+    # status              status of min active members, enabled(1) or disabled(0)
+    # number              number of min active members.
+    # priority_set        priority option of min active members: 
+    #     0    Do nothing
+    #     1    Skip Priority Set
+    #     2    Dynamic PriorityRequired, please fill in a valid number.(1 - 63)
+    # client_reset    send client reset when server selection fail enabled(1) or disabled(0)
+    # stats_data            stats data, either enabled(1) or disabled(0)
+    # extended_stats        extended stats, either enabled(1) or disabled(0)
+    # member_list     tag for service group members
+    #     server      server name (or IPv4, IPv6 address) of this member
+    #     port        server port number
+    #     template    server port template name
+    #     priority    member priority
+    #     stats_data  member stats data, either enabled(1) or disabled(0)
+    
+    # Example: 
+    # retrieve all service groups
+    svc_group_list = ServiceGroup.getAll()
+    for sg in svc_group_list:
+        # work sg
+        print sg
+    # search for service group with name, g1    
+    svc = ServiceGroup.searchByName(&quot;g1&quot;)
+    #  check svc.name, svc.health_monitor, svc.member_list
+    
+    # create a service group, g3 with members:
+    #    1.1.1.2:80 
+    #    1.1.1.3:80
+    svc2 = ServiceGroup()
+    svc2.name = &quot;g3&quot; 
+    svc2.protocol = AxAPI.PROTO_TCP
+    svc2.lb_method = AxAPI.LB_LEAST_CONNECTED_ON_SERVICE_PORT
+    svc2.member_list = [{&quot;server&quot;:&quot;1.1.1.2&quot;, &quot;port&quot;: 80, &quot;status&quot;: AxAPI.STATUS_ENABLED}, {&quot;server&quot;:&quot;1.1.1.3&quot;, &quot;port&quot;: 80}]
+    svc2.create()
+    # disable g3 member 1.1.1.2:80
+    svc2.member_list = [{&quot;server&quot;:&quot;1.1.1.2&quot;, &quot;port&quot;: 80, &quot;status&quot;: AxAPI.STATUS_DISABLED}]
+    svc2.update()  
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create"></a><span class="summary-sig-name">create</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.service_group.create Create the service group.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#ServiceGroup.create">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.service_group.delete Delete the service group.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#ServiceGroup.delete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="update"></a><span class="summary-sig-name">update</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: slb.service_group.update Update the service group.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#ServiceGroup.update">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__getattr__">__getattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__init__">__init__</a></code>,
+      <code><a href="base.AxObject-class.html#__repr__">__repr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setattr__">__setattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setitem__">__setitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__str__">__str__</a></code>,
+      <code><a href="base.AxObject-class.html#dump">dump</a></code>,
+      <code><a href="base.AxObject-class.html#get">get</a></code>,
+      <code><a href="base.AxObject-class.html#getInfo">getInfo</a></code>,
+      <code><a href="base.AxObject-class.html#getObjectDict">getObjectDict</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataJson">getRequestPostDataJson</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataXml">getRequestPostDataXml</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b> (private):
+      <code><a href="base.AxObject-class.html#_appendString" onclick="show_private();">_appendString</a></code>,
+      <code><a href="base.AxObject-class.html#_generateDictInUrl" onclick="show_private();">_generateDictInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_generateListInUrl" onclick="show_private();">_generateListInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_set_properties" onclick="show_private();">_set_properties</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getAll"></a><span class="summary-sig-name">getAll</span>()</span><br />
+      method :slb.service_group.getAll Returns a list of service groups in 
+      ServiceGroup instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#ServiceGroup.getAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="searchByName"></a><span class="summary-sig-name">searchByName</span>(<span class="summary-sig-arg">name</span>)</span><br />
+      method: slb.service_group.search Search the service group by given 
+      name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="slb-pysrc.html#ServiceGroup.searchByName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__display__"></a><span class="summary-name">__display__</span> = <code title="['name', 'protocol', 'lb_method']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">protocol</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">lb_method</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__obj_name__"></a><span class="summary-name">__obj_name__</span> = <code title="'service_group'"><code class="variable-quote">'</code><code class="variable-string">service_group</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="slb.ServiceGroup-class.html#__xml_convrt__" class="summary-name">__xml_convrt__</a> = <code title="{'member_list': 'member', 'service_group_list': 'service_group'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">member_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">member</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">service_group_list</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__obj_readonly__">__obj_readonly__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__xml_convrt__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__xml_convrt__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">member_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">member</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">service_group_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">service_group</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:20 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

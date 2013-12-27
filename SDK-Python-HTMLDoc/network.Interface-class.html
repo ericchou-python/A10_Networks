@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>network.Interface</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="network-module.html">Module&nbsp;network</a> ::
+        Class&nbsp;Interface
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="network.Interface-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Interface</h1><p class="nomargin-top"><span class="codelink"><a href="network-pysrc.html#Interface">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   object --+    
+            |    
+<a href="base.AxObject-class.html">base.AxObject</a> --+
+                |
+               <strong class="uidshort">Interface</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+Implementation of the aXAPI network.interface.* method to 
+manage the interface configuration as getAll/get/set/ipv4.add/ipv4.delete/ipv6.add/ipv6.delete, 
+and interface global.set/global.get 
+
+Usage:
+    # interface with options:
+    # port_num         (required) interface number
+    # type             interface type, always be &#8216;ethernet&#8217;
+    # name             interface name
+    # status           interface status, disabled(0) or enabled(1)
+    # mac_addr         interface MAC address
+    # duplexity        interface duplexity setting, &#8216;auto&#8217;,&#8217; half&#8217; or &#8216;full&#8217;
+    # speed            interface speed setting, &#8216;auto&#8217;, &#8216;10M&#8217;, &#8216;100M&#8217; or &#8216;1G&#8217;
+    # flow_ctl         flow control
+    # normal_rate      ICMP normal rate, if this option is set, ICMP rate limit is enabled, if
+    #                  this option is not set, ICMP rate limit is disabled on this virtual port.
+    # lockup_rate      ICMP lockup rate
+    # lockup_period    ICMP lockup period
+    # ipv4_addr_list   tag for the collection of interface IPv4 info list
+    #     ipv4_addr         IPv4 address of this interface
+    #     ipv4_mask         IPv4 mask
+    # ipv4_acl         IPv4 access list
+    # ipv6_addr_list   tag for the collection of interface IPv6 info list
+    #     ipv6_addr                     interface IPv6 address
+    #     ipv6_prefix_len               interface IPv6 prefix length
+    #     ipv6_is_any_cast_addr         yes(1), no(0)
+    #     ipv6_auto_link_local          whether to link local address automatic or not
+    #     ipv6_link_local_config        tag for interfaces IPv6 link local configuration.
+    #         ipv6_link_local_addr            IPv6 link local address
+    #         ipv6_link_local_prefix          IPv6 link local prefix length
+    #         ipv6_link_local_is_any_cast     yes(1), no(0)
+    # ipv6_acl                  IPv6 access list
+    # allow_promiscuous_vip     allow promiscuous VIP status, disabled(0) or enabled(1)
+    # tcp_sync_cookie           TCP syn cookie status, disabled(0) or enabled(1)
+    # ha_status                 interface HA status, disabled(0) or enabled(1)
+    # ha_type                   none(0), router-interface(1), server-interface(2) or both(3)
+    # ha_heartbeat              status when HA status enabled, disabled(0) or enabled(1)
+    # ha_vlan                   vlan id, only when interface HA status is enabled(1)
+    
+    # Example: 
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="configure"></a><span class="summary-sig-name">configure</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      method: network.interface.set Configure an interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.configure">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteIpv4Address"></a><span class="summary-sig-name">deleteIpv4Address</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">addr</span>,
+        <span class="summary-sig-arg">mask</span>)</span><br />
+      method: network.interface.ipv4.delete Delete the IPv4 address, 
+      addr/mask for given interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.deleteIpv4Address">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addIpv4Address"></a><span class="summary-sig-name">addIpv4Address</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">addr</span>,
+        <span class="summary-sig-arg">mask</span>)</span><br />
+      method: network.interface.ipv4.add Add the IPv4 address, addr/mask 
+      for given interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.addIpv4Address">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteIpv6Address"></a><span class="summary-sig-name">deleteIpv6Address</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">v6_addr</span>,
+        <span class="summary-sig-arg">v6_addr_prefix_len</span>)</span><br />
+      method: network.interface.ipv6.delete Delete the IPv6 address, 
+      v6_addr/v6_addr_prefix_len for given interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.deleteIpv6Address">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addIpv6Address"></a><span class="summary-sig-name">addIpv6Address</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">v6_addr</span>,
+        <span class="summary-sig-arg">v6_addr_prefix_len</span>)</span><br />
+      method: network.interface.ipv6.add Add the IPv6 address, 
+      v6_addr/v6_addr_prefix_len for given interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.addIpv6Address">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteAllIPv4Addr"></a><span class="summary-sig-name">deleteAllIPv4Addr</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.deleteAllIPv4Addr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteAllIPv6Addr"></a><span class="summary-sig-name">deleteAllIPv6Addr</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.deleteAllIPv6Addr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__getattr__">__getattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__init__">__init__</a></code>,
+      <code><a href="base.AxObject-class.html#__repr__">__repr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setattr__">__setattr__</a></code>,
+      <code><a href="base.AxObject-class.html#__setitem__">__setitem__</a></code>,
+      <code><a href="base.AxObject-class.html#__str__">__str__</a></code>,
+      <code><a href="base.AxObject-class.html#dump">dump</a></code>,
+      <code><a href="base.AxObject-class.html#getInfo">getInfo</a></code>,
+      <code><a href="base.AxObject-class.html#getObjectDict">getObjectDict</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataJson">getRequestPostDataJson</a></code>,
+      <code><a href="base.AxObject-class.html#getRequestPostDataXml">getRequestPostDataXml</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b> (private):
+      <code><a href="base.AxObject-class.html#_appendString" onclick="show_private();">_appendString</a></code>,
+      <code><a href="base.AxObject-class.html#_generateDictInUrl" onclick="show_private();">_generateDictInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_generateListInUrl" onclick="show_private();">_generateListInUrl</a></code>,
+      <code><a href="base.AxObject-class.html#_set_properties" onclick="show_private();">_set_properties</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getAll"></a><span class="summary-sig-name">getAll</span>()</span><br />
+      method : network.interface.getAll Returns a list of interface 
+      configuration in Interface instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.getAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="network.Interface-class.html#get" class="summary-sig-name">get</a>(<span class="summary-sig-arg">port_num</span>)</span><br />
+      method: network.interface.get Get the interface configuration by 
+      given port number.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="network-pysrc.html#Interface.get">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__display__"></a><span class="summary-name">__display__</span> = <code title="['port_num', 'status', 'name']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">port_num</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">status</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__obj_name__"></a><span class="summary-name">__obj_name__</span> = <code title="'interface'"><code class="variable-quote">'</code><code class="variable-string">interface</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="network.Interface-class.html#__xml_convrt__" class="summary-name">__xml_convrt__</a> = <code title="{'interface_list': 'interface',
+ 'ipv4_addr_list': 'ipv4',
+ 'ipv6_addr_list': 'ipv6'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">interface_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">interface</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">ipv4_addr_li</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="base.AxObject-class.html">base.AxObject</a></code></b>:
+      <code><a href="base.AxObject-class.html#__obj_readonly__">__obj_readonly__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="get"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get</span>(<span class="sig-arg">port_num</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="network-pysrc.html#Interface.get">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>method: network.interface.get Get the interface configuration by given
+  port number.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="base.AxObject-class.html#get">base.AxObject.get</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__xml_convrt__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__xml_convrt__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">interface_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">interface</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">ipv4_addr_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">ipv4</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">ipv6_addr_list</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">ipv6</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Dec 27 11:20:20 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
