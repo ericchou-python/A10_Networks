@@ -1,0 +1,27 @@
+ip_cfg
+======
+
+Glue object
+
+Fields
+------
+
+ipv4_address
+^^^^^^^^^^^^
+
+      IP
+
+      **Type**: string
+
+      **Required**: No
+
+ipv4_netmask
+^^^^^^^^^^^^
+
+      IP
+
+      **Type**: string
+
+      **Required**: No
+
+

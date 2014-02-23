@@ -1,0 +1,31 @@
+Ethernet_ipv6_ndisc_router_adver_ha_group_id
+============================================
+
+
+Fields
+------
+
+adver_ha_group_id
+^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+ha_use_floating_ip
+^^^^^^^^^^^^^^^^^^
+
+      Use
+
+      **Type**: int
+
+      **Required**: No
+
+ha_floating_ip
+^^^^^^^^^^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+

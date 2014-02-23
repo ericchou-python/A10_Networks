@@ -1,0 +1,53 @@
+InterfaceEthernet
+=================
+
+This resource can be accessed via following URLs.
+
+   * https://axapi.a10networks.com/axapi/v3/interface/ethernet/{ethernet_ifnum}
+
+getInterfaceEthernet (GET)
+--------------------------
+
+   Retrieve the ethernet identified by the specified identifier
+
+   **Response Type**: :doc:`data_type_ethernet`
+
+   **Supported Response Media Types**: 
+      * application/json
+
+   **Sample Response**:: 
+
+      {
+          "ifnum": 12345
+      }
+
+   **Return HTTP Status**: 200 OK
+
+   **Errors**:
+      * 500 Internal Server Error - An unexpected runtime exception
+      * 404 Not Found - Specified ethernet does not exist
+
+   **Example Curl Command**::
+
+      curl -v -k https://axapi.a10networks.com/axapi/v3/interface/ethernet/{ethernet_ifnum}
+
+deleteInterfaceEthernet (DELETE)
+--------------------------------
+
+   Remove the ethernet identified by the specified identifier from the system
+
+   **Response Type**: string
+
+   **Supported Response Media Types**: 
+      * application/json
+
+   **Return HTTP Status**: 200 OK
+
+   **Errors**:
+      * 500 Internal Server Error - An unexpected runtime exception
+      * 404 Not Found - Specified ethernet does not exist
+
+   **Example Curl Command**::
+
+      curl -v -k -X DELETE https://axapi.a10networks.com/axapi/v3/interface/ethernet/{ethernet_ifnum}
+

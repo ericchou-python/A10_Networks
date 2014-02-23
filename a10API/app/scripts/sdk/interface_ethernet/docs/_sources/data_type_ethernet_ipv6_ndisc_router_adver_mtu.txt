@@ -1,0 +1,26 @@
+Ethernet_ipv6_ndisc_router_adver_mtu
+====================================
+
+
+Fields
+------
+
+adver_mtu
+^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+adver_mtu_disable
+^^^^^^^^^^^^^^^^^
+
+      Disable
+
+      **Type**: int
+
+      **Required**: No
+
+

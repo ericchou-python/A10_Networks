@@ -1,0 +1,15 @@
+Ethernet_ifnum
+==============
+
+
+Fields
+------
+
+ifnum
+^^^^^
+
+      **Type**: int
+
+      **Required**: Yes
+
+

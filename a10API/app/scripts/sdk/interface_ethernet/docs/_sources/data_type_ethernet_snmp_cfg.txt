@@ -1,0 +1,22 @@
+Ethernet_snmp_cfg
+=================
+
+
+Fields
+------
+
+snmp_server
+^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+trap_source
+^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

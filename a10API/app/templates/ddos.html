@@ -1,0 +1,19 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>DDoS Destination IP for Protection</h1>
+<form action="" method="post" name="ipForm">
+    {{form.hidden_tag()}}
+    <p>
+        Please enter Destination IP:<br>
+        {{form.dstIP(size=80)}}<br>
+        {% for error in form.errors.openid %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>    
+    </p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}
+
+

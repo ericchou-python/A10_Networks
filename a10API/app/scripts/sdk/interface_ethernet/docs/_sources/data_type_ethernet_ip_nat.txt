@@ -1,0 +1,22 @@
+Ethernet_ip_nat
+===============
+
+
+Fields
+------
+
+inside
+^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+outside
+^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

@@ -1,0 +1,36 @@
+Ethernet_ipv6
+=============
+
+
+Fields
+------
+
+address_cfg
+^^^^^^^^^^^
+
+      **Type**: list(:doc:`data_type_address_cfg`)
+
+      **Required**: Yes
+
+ipv6_enable
+^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+access_list_cfg
+^^^^^^^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_access_list_cfg`
+
+      **Required**: No
+
+ndisc
+^^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_ndisc`
+
+      **Required**: No
+
+

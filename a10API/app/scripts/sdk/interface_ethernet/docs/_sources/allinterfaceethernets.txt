@@ -1,0 +1,67 @@
+AllInterfaceEthernets
+=====================
+
+This resource can be accessed via following URLs.
+
+   * https://axapi.a10networks.com/axapi/v3/interface/ethernet/
+
+submitInterfaceEthernet (POST)
+------------------------------
+
+   Create the object ethernet
+
+   **Request Type**: :doc:`data_type_ethernet`
+
+   **Supported Request Media Types**: 
+      * application/json
+
+   **Sample Request**:: 
+
+      {
+          "ifnum": 12345
+      }
+
+   **Response Type**: string
+
+   **Supported Response Media Types**: 
+      * application/json
+
+   **Return HTTP Status**: 200 OK
+
+   **Errors**:
+      * 500 Internal Server Error - An unexpected runtime exception
+
+   **Example Curl Command**::
+
+      curl -v -k -X POST -d @input.txt -H "Content-type: application/json" https://axapi.a10networks.com/axapi/v3/interface/ethernet
+
+getAllInterfaceEthernets (GET)
+------------------------------
+
+   Retrieve all ethernet objects currently pending in the system
+
+   **Response Type**: list(:doc:`data_type_ethernet`)
+
+   **Supported Response Media Types**: 
+      * application/json
+
+   **Sample Response**:: 
+
+      [
+          {
+              "ifnum": 12345
+          },
+          {
+              "ifnum": 12345
+          }
+      ]
+
+   **Return HTTP Status**: 200 OK
+
+   **Errors**:
+      * 500 Internal Server Error - An unexpected runtime exception
+
+   **Example Curl Command**::
+
+      curl -v -k https://axapi.a10networks.com/axapi/v3/interface/ethernet
+

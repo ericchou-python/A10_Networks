@@ -1,0 +1,15 @@
+Ethernet_ipv6_ndisc
+===================
+
+
+Fields
+------
+
+router_adver
+^^^^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_ndisc_router_adver`
+
+      **Required**: No
+
+

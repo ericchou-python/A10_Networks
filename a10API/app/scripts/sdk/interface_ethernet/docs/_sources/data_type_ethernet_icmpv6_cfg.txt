@@ -1,0 +1,36 @@
+Ethernet_icmpv6_cfg
+===================
+
+
+Fields
+------
+
+icmpv6_rate_limit
+^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+normal_val
+^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+lockup
+^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+lockup_period
+^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

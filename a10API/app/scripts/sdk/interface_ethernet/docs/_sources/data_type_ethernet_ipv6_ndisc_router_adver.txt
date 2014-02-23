@@ -1,0 +1,117 @@
+Ethernet_ipv6_ndisc_router_adver
+================================
+
+
+Fields
+------
+
+adver_enable
+^^^^^^^^^^^^
+
+      Enable
+
+      **Type**: int
+
+      **Required**: No
+
+adver_disable
+^^^^^^^^^^^^^
+
+      Disable
+
+      **Type**: int
+
+      **Required**: No
+
+default_lifetime
+^^^^^^^^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+hop_limit
+^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+max_interval
+^^^^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+min_interval
+^^^^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+rate_limit
+^^^^^^^^^^
+
+      Rate
+
+      **Type**: int
+
+      **Required**: No
+
+reachable_time
+^^^^^^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+retransmit_timer
+^^^^^^^^^^^^^^^^
+
+      Set
+
+      **Type**: int
+
+      **Required**: No
+
+mtu
+^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_ndisc_router_adver_mtu`
+
+      **Required**: No
+
+prefix_cfg
+^^^^^^^^^^
+
+      **Type**: list(:doc:`data_type_prefix_cfg`)
+
+      **Required**: No
+
+vrid
+^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_ndisc_router_adver_vrid`
+
+      **Required**: No
+
+ha_group_id
+^^^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6_ndisc_router_adver_ha_group_id`
+
+      **Required**: No
+
+
