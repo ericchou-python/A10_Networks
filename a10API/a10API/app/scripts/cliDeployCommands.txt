@@ -1,0 +1,2 @@
+ddos dst-ip host 1.1.1.1
+

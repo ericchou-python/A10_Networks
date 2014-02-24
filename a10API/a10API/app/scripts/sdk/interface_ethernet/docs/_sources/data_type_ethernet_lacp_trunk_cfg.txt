@@ -1,0 +1,44 @@
+Ethernet_lacp_trunk_cfg
+=======================
+
+
+Fields
+------
+
+trunk
+^^^^^
+
+      LACP
+
+      **Type**: int
+
+      **Required**: No
+
+mode
+^^^^
+
+      LACP
+
+      **Type**: string
+
+      **Required**: No
+
+admin_key
+^^^^^^^^^
+
+      Admin
+
+      **Type**: int
+
+      **Required**: No
+
+unidirectional_detection
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+      LACP
+
+      **Type**: int
+
+      **Required**: No
+
+

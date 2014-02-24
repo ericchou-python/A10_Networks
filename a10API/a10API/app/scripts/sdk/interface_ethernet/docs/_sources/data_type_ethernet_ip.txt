@@ -1,0 +1,78 @@
+Ethernet_ip
+===========
+
+
+Fields
+------
+
+address
+^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_ip_address`
+
+      **Required**: Yes
+
+allow_promiscuous_vip
+^^^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+cache_spoofing_port
+^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+helper_address
+^^^^^^^^^^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+nat
+^^^
+
+      **Type**: :doc:`data_type_ethernet_ip_nat`
+
+      **Required**: No
+
+slb_partition_redirect
+^^^^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+igmp
+^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+generate_membership_query
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+generate_membership_query_val
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+max_resp_time
+^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

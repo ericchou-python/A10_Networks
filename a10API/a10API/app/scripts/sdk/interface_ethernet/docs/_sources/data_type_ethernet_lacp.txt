@@ -1,0 +1,36 @@
+Ethernet_lacp
+=============
+
+
+Fields
+------
+
+trunk_cfg
+^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_lacp_trunk_cfg`
+
+      **Required**: Yes
+
+port_priority
+^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+timeout
+^^^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+udld_timeout_cfg
+^^^^^^^^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_lacp_udld_timeout_cfg`
+
+      **Required**: No
+
+

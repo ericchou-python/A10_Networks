@@ -1,0 +1,20 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<img src="../static/arista_logo.png" alt="Arista Logo"><br>
+<h1>Source IP for DirectFlow Drop Protection</h1>
+<form action="" method="post" name="ipForm">
+    {{form.hidden_tag()}}
+    <p>
+        Please enter Source IP for DirectFlow Drop:<br>
+        {{form.srcIP(size=80)}}<br>
+        {% for error in form.errors.openid %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>    
+    </p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}
+
+

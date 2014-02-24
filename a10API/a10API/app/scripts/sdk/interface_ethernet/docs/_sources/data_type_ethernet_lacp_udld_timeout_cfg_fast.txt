@@ -1,0 +1,17 @@
+Ethernet_lacp_udld_timeout_cfg_fast
+===================================
+
+
+Fields
+------
+
+udld_fast_timeout
+^^^^^^^^^^^^^^^^^
+
+      timeout
+
+      **Type**: int
+
+      **Required**: No
+
+

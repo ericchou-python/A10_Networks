@@ -1,0 +1,141 @@
+Ethernet
+========
+
+
+Fields
+------
+
+ifnum
+^^^^^
+
+      **Type**: int
+
+      **Required**: Yes
+
+name
+^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+l3_vlan_fwd_disable
+^^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+load_interval
+^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+mtu
+^^^
+
+      **Type**: int
+
+      **Required**: No
+
+snmp_cfg
+^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_snmp_cfg`
+
+      **Required**: No
+
+duplexity
+^^^^^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+speed
+^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+flow_control
+^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+enable
+^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+disable
+^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+icmp_cfg
+^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_icmp_cfg`
+
+      **Required**: No
+
+icmpv6_cfg
+^^^^^^^^^^
+
+      **Type**: :doc:`data_type_ethernet_icmpv6_cfg`
+
+      **Required**: No
+
+monitor_cfg
+^^^^^^^^^^^
+
+      **Type**: list(:doc:`data_type_monitor_cfg`)
+
+      **Required**: No
+
+cpu_process
+^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+lacp
+^^^^
+
+      **Type**: :doc:`data_type_ethernet_lacp`
+
+      **Required**: No
+
+ddos
+^^^^
+
+      **Type**: :doc:`data_type_ethernet_ddos`
+
+      **Required**: No
+
+ip
+^^
+
+      **Type**: :doc:`data_type_ethernet_ip`
+
+      **Required**: No
+
+ipv6
+^^^^
+
+      **Type**: :doc:`data_type_ethernet_ipv6`
+
+      **Required**: No
+
+

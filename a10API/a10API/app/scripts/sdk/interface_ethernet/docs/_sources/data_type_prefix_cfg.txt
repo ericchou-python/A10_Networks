@@ -1,0 +1,54 @@
+prefix_cfg
+==========
+
+Glue object
+
+Fields
+------
+
+prefix
+^^^^^^
+
+      Set
+
+      **Type**: string
+
+      **Required**: No
+
+not_autonomous
+^^^^^^^^^^^^^^
+
+      Specify
+
+      **Type**: int
+
+      **Required**: No
+
+not_on_link
+^^^^^^^^^^^
+
+      Specify
+
+      **Type**: int
+
+      **Required**: No
+
+preferred_lifetime
+^^^^^^^^^^^^^^^^^^
+
+      Specify
+
+      **Type**: int
+
+      **Required**: No
+
+valid_lifetime
+^^^^^^^^^^^^^^
+
+      Specify
+
+      **Type**: int
+
+      **Required**: No
+
+

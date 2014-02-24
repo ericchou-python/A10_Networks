@@ -1,0 +1,32 @@
+monitor_cfg
+===========
+
+Glue object
+
+Fields
+------
+
+monitor
+^^^^^^^
+
+      Set
+
+      **Type**: string
+
+      **Required**: No
+
+mirror_index
+^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+monitor_vlan
+^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

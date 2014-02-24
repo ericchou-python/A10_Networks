@@ -1,0 +1,22 @@
+Ethernet_ddos
+=============
+
+
+Fields
+------
+
+outside
+^^^^^^^
+
+      **Type**: int
+
+      **Required**: Yes
+
+inside
+^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+

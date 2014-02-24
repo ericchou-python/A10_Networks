@@ -1,0 +1,48 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - A10 aXAPI</title>
+    {% else %}
+    <title>A10 aXAPI</title>
+    {% endif %}
+
+    <link rel="stylesheet" type="text/css" href="../static/mystyles.css" media="screen" />
+    <script src="../static/javascript.js"></script>
+
+  <img src="../static/a10_logo.png" alt="A10 Logo"><br>
+    
+  <div>A10: <a href="/index">Home</a></div><br>
+
+<ul id="sddm">
+    <li><a href="/index">Home</a></li>
+    <li><a href="/ddos" 
+        onmouseover="mopen('m1')" 
+        onmouseout="mclosetime()">DDoS</a>
+        <div id="m1" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="/ddos">Protected Object</a>
+        <a href="/directflow">Arista DirectFlow</a>
+        </div>
+    </li>
+    <li><a href="#">Help</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+<div style="clear:both"></div>
+<hr>
+</head>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>

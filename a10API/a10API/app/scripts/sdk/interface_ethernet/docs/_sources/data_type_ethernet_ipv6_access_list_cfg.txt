@@ -1,0 +1,26 @@
+Ethernet_ipv6_access_list_cfg
+=============================
+
+
+Fields
+------
+
+v6_acl_name
+^^^^^^^^^^^
+
+      Named
+
+      **Type**: string
+
+      **Required**: No
+
+inbound
+^^^^^^^
+
+      ACL
+
+      **Type**: int
+
+      **Required**: No
+
+

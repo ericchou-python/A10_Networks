@@ -1,0 +1,38 @@
+Ethernet_ipv6_ndisc_router_adver_vrid
+=====================================
+
+
+Fields
+------
+
+adver_vrid
+^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+adver_vrid_default
+^^^^^^^^^^^^^^^^^^
+
+      **Type**: int
+
+      **Required**: No
+
+use_floating_ip
+^^^^^^^^^^^^^^^
+
+      Use
+
+      **Type**: int
+
+      **Required**: No
+
+floating_ip
+^^^^^^^^^^^
+
+      **Type**: string
+
+      **Required**: No
+
+

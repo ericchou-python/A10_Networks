@@ -1,0 +1,24 @@
+Ethernet_ip_address
+===================
+
+
+Fields
+------
+
+ip_cfg
+^^^^^^
+
+      **Type**: list(:doc:`data_type_ip_cfg`)
+
+      **Required**: No
+
+dhcp
+^^^^
+
+      Use
+
+      **Type**: int
+
+      **Required**: No
+
+

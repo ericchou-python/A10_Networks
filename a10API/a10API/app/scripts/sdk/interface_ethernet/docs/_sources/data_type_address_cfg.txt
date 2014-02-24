@@ -1,0 +1,36 @@
+address_cfg
+===========
+
+Glue object
+
+Fields
+------
+
+ipv6_addr
+^^^^^^^^^
+
+      IPv6
+
+      **Type**: string
+
+      **Required**: No
+
+anycast
+^^^^^^^
+
+      Configure
+
+      **Type**: int
+
+      **Required**: No
+
+link_local
+^^^^^^^^^^
+
+      Configure
+
+      **Type**: int
+
+      **Required**: No
+
+

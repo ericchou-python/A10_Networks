@@ -1,0 +1,37 @@
+Welcome to the Documentation of ethernet AXAPI
+==============================================
+
+Description
+-----------
+
+Ethernet interface
+
+Available Operations
+--------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   interfaceethernet
+   allinterfaceethernets
+
+Data Models
+-----------
+
+.. toctree::
+   :maxdepth: 1
+
+   data_type_monitor_cfg
+   data_type_ip_cfg
+   data_type_address_cfg
+   data_type_prefix_cfg
+   data_type_ethernet
+   data_type_ethernet_ifnum
+
+Endpoints
+---------
+
+This AXAPI can be accessed via following URLs.
+
+   * https://axapi.a10networks.com/axapi/v3/interface/ethernet
+

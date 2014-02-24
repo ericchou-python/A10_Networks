@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>InterfaceEthernet &mdash; ethernet AXAPI 0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ethernet AXAPI 0.0 documentation" href="index.html" />
+    <link rel="next" title="AllInterfaceEthernets" href="allinterfaceethernets.html" />
+    <link rel="prev" title="Welcome to the Documentation of ethernet AXAPI" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="allinterfaceethernets.html" title="AllInterfaceEthernets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the Documentation of ethernet AXAPI"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ethernet AXAPI 0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="interfaceethernet">
+<h1>InterfaceEthernet<a class="headerlink" href="#interfaceethernet" title="Permalink to this headline">¶</a></h1>
+<p>This resource can be accessed via following URLs.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://axapi.a10networks.com/axapi/v3/interface/ethernet">https://axapi.a10networks.com/axapi/v3/interface/ethernet</a>/{<a class="reference internal" href="data_type_ethernet_ifnum.html"><em>ethernet_ifnum</em></a>}</li>
+</ul>
+</div></blockquote>
+<div class="section" id="getinterfaceethernet-get">
+<h2>getInterfaceEthernet (GET)<a class="headerlink" href="#getinterfaceethernet-get" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Retrieve the ethernet identified by the specified identifier</p>
+<p><strong>Response Type</strong>: <a class="reference internal" href="data_type_ethernet.html"><em>Ethernet</em></a></p>
+<dl class="docutils">
+<dt><strong>Supported Response Media Types</strong>:</dt>
+<dd><ul class="first last simple">
+<li>application/json</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;ifnum&quot;</span><span class="p">:</span> <span class="mi">12345</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Return HTTP Status</strong>: 200 OK</p>
+<dl class="docutils">
+<dt><strong>Errors</strong>:</dt>
+<dd><ul class="first last simple">
+<li>500 Internal Server Error - An unexpected runtime exception</li>
+<li>404 Not Found - Specified ethernet does not exist</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example Curl Command</strong>:</p>
+<div class="highlight-python"><pre>curl -v -k https://axapi.a10networks.com/axapi/v3/interface/ethernet/{ethernet_ifnum}</pre>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="deleteinterfaceethernet-delete">
+<h2>deleteInterfaceEthernet (DELETE)<a class="headerlink" href="#deleteinterfaceethernet-delete" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Remove the ethernet identified by the specified identifier from the system</p>
+<p><strong>Response Type</strong>: string</p>
+<dl class="docutils">
+<dt><strong>Supported Response Media Types</strong>:</dt>
+<dd><ul class="first last simple">
+<li>application/json</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Return HTTP Status</strong>: 200 OK</p>
+<dl class="docutils">
+<dt><strong>Errors</strong>:</dt>
+<dd><ul class="first last simple">
+<li>500 Internal Server Error - An unexpected runtime exception</li>
+<li>404 Not Found - Specified ethernet does not exist</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example Curl Command</strong>:</p>
+<div class="highlight-python"><pre>curl -v -k -X DELETE https://axapi.a10networks.com/axapi/v3/interface/ethernet/{ethernet_ifnum}</pre>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">InterfaceEthernet</a><ul>
+<li><a class="reference internal" href="#getinterfaceethernet-get">getInterfaceEthernet (GET)</a></li>
+<li><a class="reference internal" href="#deleteinterfaceethernet-delete">deleteInterfaceEthernet (DELETE)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to the Documentation of ethernet AXAPI</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="allinterfaceethernets.html"
+                        title="next chapter">AllInterfaceEthernets</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/interfaceethernet.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="allinterfaceethernets.html" title="AllInterfaceEthernets"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the Documentation of ethernet AXAPI"
+             >previous</a> |</li>
+        <li><a href="index.html">ethernet AXAPI 0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, .
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+    </div>
+  </body>
+</html>
