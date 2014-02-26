@@ -20,7 +20,7 @@ httplib.HTTPSConnection.connect = connect_patched
 
 if __name__ == '__main__':
 
-    hostIp = '192.168.1.203'
+    hostIp = '10.3.150.184'
 
     # Retrieve signature using AuthorizationClient
     authClient = AuthorizationClient(endpoint='https://' + hostIp + '/auth',debug=True)

@@ -1,0 +1,12 @@
+
+The applications using python AXAPI sdk library has to set the path to
+python_sdk parent directory, whereas the python application can reside
+anywhere. But ideally it would reside outside of SDK directory if it is
+an external program or under test if it is a tool.
+
+The application can set the path appropriate as follows:
+
+import sys
+sys.path.append(sdk_path)
+
+where sdk_path is the parent directory containing AXAPI SDK package.

@@ -1,0 +1,130 @@
+
+################################################################################
+# File name: test_interface_ethernet.py
+# Copyright(C) 2007-2013, A10 Networks Inc. All rights reserved.
+# Software for all A10 products contain trade secrets and confidential
+# information of A10 Networks and its subsidiaries and may not be
+# disclosed, copied, reproduced or distributed to anyone outside of
+# A10 Networks without prior written consent of A10 Networks, Inc.
+################################################################################
+import sys
+sys.path.append(".")
+#sys.path.append("../..")
+sys.path.append("/home/echou/a10API/app/scripts/axapisdk")
+import python_sdk
+
+from sdk_auth import *
+from interface_ethernet import *
+
+if __name__ == '__main__':
+
+    host_ip = '10.3.150.184'
+    enable_debug = False
+    description =  '\n\
+    Description: \n\
+    ------------ \n\
+    1. Retrieve the signature after authorization. \n\
+    2. Removes any configuration already existing on interface ethernet 7 \n\
+    3. Retrieve a list of all interface ethernet objects and print IPv4 address and netmask info \n\
+    4. Retrieve an interface ethernet object with an interface number 7 and print mtu, IPv4 address and netmask info'
+
+    print(description)
+
+    print("\n***** Retrieve signature *****")
+    try :
+        auth_client = AuthorizationClient(ipaddress=host_ip,debug=enable_debug)
+        credentials = Credentials(username="admin", password="a10")
+        auth_response = auth_client.submitCredentials(credentials)
+        signature = auth_response.signature
+    except RemoteException as re:
+        print "status=%s" %re.status
+        print "message=%s" %re.message
+        print "details=%s" %re.details
+
+
+
+    ########## Creating a new ethernet interface
+
+    # For convenience we have two types of Https clients
+
+    # All Ethernets Client
+    all_ethernets_client = AllInterfaceEthernetsClient(ipaddress = host_ip, sessionid=signature, debug=enable_debug)
+    # Ethernet Id Client
+    ethernet_id_client = InterfaceEthernetClient(ipaddress = host_ip, sessionid=signature, debug=enable_debug)
+
+
+    print("\n***** Remove any configuration if it already exists on ethernet 7. *****")
+    print("_____ Object specified does not exist error will show up if no interface ethernet 7 configuration exists _____")
+
+    try :
+        ethernet_id_client.deleteInterfaceEthernet(Ethernet_ifnum(7))
+    except RemoteException as rex:
+        print "status=%s" %rex.status
+        print "message=%s" %rex.message
+        print "details=%s" %rex.details
+
+
+    print ("\n***** Create a list of Ip addresses *****")
+    ipaddress_list = []
+    ipaddress_list.append(Interface_ethernet_ip_cfg(ipv4_address = "78.1.1.1", ipv4_netmask = "255.255.0.0"))
+    ipaddress_list.append(Interface_ethernet_ip_cfg(ipv4_address = "78.1.1.2", ipv4_netmask = "255.255.0.0"))
+    ip_addr = Ethernet__ip__address(ipaddress_list)
+
+    # IP has several subfields of which ipaddress is one of them
+    ip = Ethernet__ip(ip_addr)
+
+    # Set a helper address
+    ip.helper_address = '4.4.4.4'
+
+    # Enable Nat outside
+    ip.nat = Ethernet__ip__nat(outside=1)
+
+    # Construct the main Ethernet object
+    ethernet = Ethernet(ifnum=7, enable=1, ip=ip, load_interval= 5, mtu=1300, duplexity='Half')
+    ddos = Ethernet__ddos(outside=1)
+
+    ethernet.flow_control = 1
+    ethernet.speed = '1000'
+    ethernet.ddos = ddos
+    ethernet.ip = ip
+
+    try :
+        all_ethernets_client.submitInterfaceEthernet(ethernet)
+    except RemoteException as rex:
+        print "status=%s" %rex.status
+        print "message=%s" %rex.message
+        print "details=%s" %rex.details
+
+
+    print("\n***** Get a List of all Ethernet objects *****")
+    try:
+        allEthernets = all_ethernets_client.getAllInterfaceEthernets()
+        for ethernet_object in allEthernets:
+            if ethernet_object.ip:
+                if ethernet_object.ip.address.ip_cfg:
+                    print("interface index = %d" % ethernet_object.ifnum)
+                    for ip_cfg in ethernet_object.ip.address.ip_cfg:
+                        print("ipv4-address = %s" % ip_cfg.ipv4_address)
+                        print("ipv4-netmask = %s" % ip_cfg.ipv4_netmask)
+    except RemoteException as rex:
+        print "status=%s" %rex.status
+        print "message=%s" %rex.message
+        print "details=%s" %rex.details
+
+
+    print ("\n***** Get an ethernet object with a given interface index 7 *****")
+
+    try:
+        ethernet_object = ethernet_id_client.getInterfaceEthernet(Ethernet_ifnum(7))
+        print("interface index = %d" % ethernet_object.ifnum)
+        print("mtu = %d" % ethernet_object.mtu)
+        if ethernet_object.ip.address.ip_cfg:
+            for ip_cfg in ethernet_object.ip.address.ip_cfg:
+                print("ipv4-address = %s" % ip_cfg.ipv4_address)
+                print("ipv4-netmask = %s" % ip_cfg.ipv4_netmask)
+
+    except RemoteException as rex:
+        print (rex.status, rex.message, rex.details)
+
+    print("\n***** Logoff *****")
+    auth_client.submitlogoff(credentials)
