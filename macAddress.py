@@ -10,9 +10,6 @@
 # python macAddress.py -d 192.168.148.163 -p 1
 #
 
-# I think we should switch this to requests
-# It is HTTP for Humans, after all. 
-
 import httplib, json, urllib, urllib2, optparse
 import socket, ssl
 from xml.etree import ElementTree
